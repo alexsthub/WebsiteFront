@@ -1,0 +1,42 @@
+.container {
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text {
+  font-size: 40px;
+  line-height: .5;
+  text-align: center;
+}
+
+.learn-more-button {
+  outline: 2px solid white;
+  align-self: center;
+  text-align: center;
+  padding: 12px 25px 12px 25px;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.3s outline ease-in-out;
+}
+
+.right-arrow {
+  margin-left: 25px;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.learn-more-button:hover {
+  background-color: rgba(227, 27, 109, 1);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+  outline: 2px solid rgb(227, 27, 109);
+}
+
+.learn-more-button:hover>.right-arrow {
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* TODO: Align self is shitty option. Why isn't it centering from justify content? */
+/* TODO: Container sizing is weird */
