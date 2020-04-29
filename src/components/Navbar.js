@@ -11,6 +11,7 @@ export default class NavBar extends React.Component {
 
   handleClick = (index) => {
     this.setState({ selectedIndex: index });
+    // TODO: Scroll to the right spot
   };
 
   render() {
