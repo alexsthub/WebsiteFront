@@ -9,17 +9,17 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export default class Header extends React.Component {
   render() {
     return (
-      <div className="container">
+      <header className="App-header">
         <div className="text">
           <span>
             Hello, I'm{" "}
             <span style={{ color: colors.boldText, fontWeight: "bold" }}>
-              Alex Tan.
+              {this.props.name}.
             </span>
           </span>
-          <p>I'm an aspiring full stack developer.</p>
+          <p>{this.props.description}</p>
         </div>
-        <div className="learn-more-button" onClick={this.props.onClick}>
+        <div className="learn-more-button" onClick={this.props.handleLearnMore}>
           Learn More
           <FontAwesomeIcon
             className="right-arrow"
@@ -27,7 +27,7 @@ export default class Header extends React.Component {
             size="xs"
           />
         </div>
-      </div>
+      </header>
     );
   }
 }
