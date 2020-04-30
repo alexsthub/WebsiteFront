@@ -8,9 +8,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 
 // TODO: Work on about me
-// TODO: scroll from navbar
 // TODO: change navbar when i scroll to a location
-// TODO: Scroll should be to the offset - the height of the navbar
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,12 +29,13 @@ export default class App extends React.Component {
 			<div className="App">
 				<NavBar refList={this.refList} options={options} />
 				<Header
-					handleLearnMore={() => window.scrollTo(0, this.refList.About.current.offsetTop - 55)}
+					refProp={this.refList.Home}
+					handleLearnMore={() => window.scrollTo(0, this.refList.About.current.offsetTop - 50)}
 				/>
 				<main>
 					<AboutSection refProp={this.refList.About} />
-					<ExperienceSection />
-					<ProjectsSection />
+					<ExperienceSection refProp={this.refList.Experience} />
+					<ProjectsSection refProp={this.refList.Projects} />
 				</main>
 			</div>
 		);
