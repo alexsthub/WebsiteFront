@@ -1,20 +1,10 @@
 .container {
-  background-color: #FFFFFF;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  color: white;
   padding-top: 50px;
-}
-
-.containerB {
-  background-color: #F7F7F7;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
 }
