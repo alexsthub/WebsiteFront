@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/About.css";
 
+// TODO: Add 4 qualities and some skills about me
 export default class AboutSection extends React.Component {
 	render() {
 		return (

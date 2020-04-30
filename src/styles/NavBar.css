@@ -10,7 +10,7 @@
   color: white;
   align-items: center;
   justify-content: space-between;
-  /* height: 50; */
+  z-index: 99;
 }
 
 .logo-container {

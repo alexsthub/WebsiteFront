@@ -7,6 +7,9 @@ import Header from "./components/Header";
 import AboutSection from "./components/AboutSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
+import ResumeSection from "./components/ResumeSection";
+
+import { Route, Switch, Link, NavLink, Redirect } from "react-router-dom";
 
 // TODO: Work on about me
 export default class App extends React.Component {
@@ -28,16 +31,21 @@ export default class App extends React.Component {
 		return (
 			<div className="App">
 				<NavBar refList={this.refList} options={options} />
-
-				<Header
-					refProp={this.refList.Home}
-					handleLearnMore={() => window.scrollTo(0, this.refList.About.current.offsetTop - 64)}
-				/>
 				<PortalBar />
+
 				<main>
-					<AboutSection refProp={this.refList.About} />
-					<ExperienceSection refProp={this.refList.Experience} />
-					<ProjectsSection refProp={this.refList.Projects} />
+					<Switch>
+						<Route exact path="/">
+							<Header refProp={this.refList.Home} aboutRef={this.refList.About} />
+							<AboutSection refProp={this.refList.About} />
+							<ExperienceSection refProp={this.refList.Experience} />
+							<ProjectsSection refProp={this.refList.Projects} />
+						</Route>
+						<Route path="/resume">
+							<ResumeSection />
+						</Route>
+						<Redirect to="/" />
+					</Switch>
 				</main>
 			</div>
 		);

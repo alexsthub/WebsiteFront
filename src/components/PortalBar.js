@@ -21,7 +21,14 @@ export default class PortalBar extends React.Component {
 			{ title: "Email", link: Links.linkedin, icon: faEnvelope },
 		];
 		const options = socialList.map((option) => {
-			return <ClickableIcon link={option.link} icon={option.icon} title={option.title} />;
+			return (
+				<ClickableIcon
+					key={option.title}
+					link={option.link}
+					icon={option.icon}
+					title={option.title}
+				/>
+			);
 		});
 		return (
 			<div className="portal-container">

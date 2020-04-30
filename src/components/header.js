@@ -9,6 +9,11 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
 export default class Header extends React.Component {
+	handleLearnMore = () => {
+		console.log(this.props.aboutRef.current);
+		window.scrollTo(0, this.props.aboutRef.current.offsetTop - 64);
+	};
+
 	render() {
 		return (
 			<header className="App-header" ref={this.props.refProp}>
@@ -19,7 +24,7 @@ export default class Header extends React.Component {
 					</span>
 					<p>{HeaderText.description}</p>
 				</div>
-				<div className="learn-more-button" onClick={this.props.handleLearnMore}>
+				<div className="learn-more-button" onClick={this.handleLearnMore}>
 					Learn More
 					<FontAwesomeIcon className="right-arrow" icon={faArrowRight} size="xs" />
 				</div>
