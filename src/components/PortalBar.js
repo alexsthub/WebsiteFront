@@ -11,11 +11,21 @@ import { Tooltip } from "react-tippy";
 // TODO: Show popper on hover
 export default class PortalBar extends React.Component {
 	render() {
+		const socialList = [
+			{ title: "Github", link: Links.github, icon: faGithub },
+			{
+				title: "LinkedIn",
+				link: Links.linkedin,
+				icon: faLinkedin,
+			},
+			{ title: "Email", link: Links.linkedin, icon: faEnvelope },
+		];
+		const options = socialList.map((option) => {
+			return <ClickableIcon link={option.link} icon={option.icon} title={option.title} />;
+		});
 		return (
 			<div className="portal-container">
-				<ClickableIcon link={Links.github} icon={faGithub} title={"Github"} />
-				<ClickableIcon link={Links.linkedin} icon={faLinkedin} title={"LinkedIn"} />
-				<ClickableIcon link={Links.email} icon={faEnvelope} title={"Email"} />
+				{options}
 				<div className="bottom-bar" />
 			</div>
 		);
