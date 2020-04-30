@@ -9,7 +9,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ResumeSection from "./components/ResumeSection";
 
-import { Route, Switch, Link, NavLink, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 // TODO: Work on about me
 export default class App extends React.Component {

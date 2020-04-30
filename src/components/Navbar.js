@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/NavBar.css";
 
 import NavOption from "./NavOption";
+import { Link } from "react-router-dom";
 
 export default class NavBar extends React.Component {
 	constructor(props) {
@@ -58,8 +59,26 @@ export default class NavBar extends React.Component {
 		}
 	};
 
+	handleResume = (index) => {
+		this.setState({ selectedIndex: index });
+		console.log("HELLO");
+	};
+
 	render() {
 		const renderedOptions = this.props.options.map((option, index) => {
+			if (option === "Resume") {
+				return (
+					<Link to="/resume" key={option} style={{ textDecoration: "none", color: "inherit" }}>
+						<NavOption
+							idx={index}
+							text={option}
+							selected={index === this.state.selectedIndex}
+							onClick={() => this.handleResume(index)}
+						/>
+					</Link>
+				);
+			}
+
 			return (
 				<NavOption
 					key={option}
