@@ -17,15 +17,13 @@ export default class NavBar extends React.Component {
 		window.removeEventListener("scroll", this.listenToScroll);
 	}
 
-	// TODO: Imprecise because of the navbar i think.
+	// TODO: Slightly imprecise. when i click on an option its a little off.
 	checkRange(index, yPos) {
 		const options = this.props.options;
 		const ref = this.props.refList[options[index]];
 		const offsetTop = ref.current.offsetTop;
 		const offsetBottom = offsetTop + ref.current.offsetHeight;
-		console.log(offsetTop, offsetBottom);
 		if (offsetTop <= yPos && yPos <= offsetBottom) {
-			console.log("Solved!");
 			return true;
 		}
 		return false;
@@ -33,9 +31,7 @@ export default class NavBar extends React.Component {
 
 	// TODO: Hardcoded to 4. should be this.props.options.length
 	listenToScroll = () => {
-		const yPos = window.scrollY + 55;
-		console.log(yPos);
-
+		const yPos = window.scrollY + 64;
 		let start = this.state.selectedIndex;
 		let end = this.state.selectedIndex + 1;
 		while (start >= 0 || end < 4) {
@@ -56,7 +52,7 @@ export default class NavBar extends React.Component {
 		const section = event.currentTarget.lastChild.innerHTML;
 		if (section !== "Resume") {
 			const selectedRef = this.props.refList[section];
-			window.scrollTo(0, selectedRef.current.offsetTop - 55);
+			window.scrollTo(0, selectedRef.current.offsetTop - 64);
 			this.setState({ selectedIndex: index });
 		}
 	};
@@ -74,6 +70,13 @@ export default class NavBar extends React.Component {
 			);
 		});
 
-		return <div className="navbar">{renderedOptions}</div>;
+		return (
+			<div className="navbar">
+				<div className="logo-container">
+					<img className="logo" src={"/logo2.png"} alt={"logo"} />
+				</div>
+				<div className="options-container">{renderedOptions}</div>
+			</div>
+		);
 	}
 }
