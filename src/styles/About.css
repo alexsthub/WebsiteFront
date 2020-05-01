@@ -114,5 +114,19 @@ h3 {
 }
 
 .progress-bar {
-  background-color: #04c2c9
+  position: relative;
+  border: 1px solid black;
+  background-color: #028A8F;
+  display: flex;
+}
+
+.progress {
+  background-color: #04c2c9;
+}
+
+.progress-bar p {
+  position: absolute;
+  right: 5px;
+  margin: auto;
+  color: white;
 }

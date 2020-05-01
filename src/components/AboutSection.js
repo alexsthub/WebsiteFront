@@ -3,10 +3,23 @@ import "../styles/About.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlasses, faMonument, faTachometerAlt, faClock } from "@fortawesome/free-solid-svg-icons";
+import { skills } from "../constants/skills.js";
 
 // TODO: Implement progress bar
 export default class AboutSection extends React.Component {
 	render() {
+		const languageSkills = skills.languages.map((s) => {
+			return <Skill skill={s.name} rating={s.rating} />;
+		});
+
+		const toolSkills = skills.tools.map((s) => {
+			return <Skill skill={s.name} rating={s.rating} />;
+		});
+
+		const conceptSkills = skills.concepts.map((s) => {
+			return <Skill skill={s.name} rating={s.rating} />;
+		});
+
 		return (
 			<section id="about" className="about-container center-vertical" ref={this.props.refProp}>
 				<div className="about-content">
@@ -71,38 +84,9 @@ export default class AboutSection extends React.Component {
 
 				<div className="about-content wide">
 					<div className="column-container equal-children">
-						<div className="skills-column">
-							<p className="title">{"Languages & Frameworks"}</p>
-							<Skill skill={"Python"} />
-							<Skill skill={"JavaScript"} />
-							<Skill skill={"TypeScript"} />
-							<Skill skill={"Node.js"} />
-							<Skill skill={"Golang"} />
-							<Skill skill={"SQL"} />
-							<Skill skill={"React.js"} />
-							<Skill skill={"React Native"} />
-							<Skill skill={"Express"} />
-						</div>
-						<div className="skills-column">
-							<p className="title">{"Tools"}</p>
-							<Skill skill={"AWS"} />
-							<Skill skill={"Git"} />
-							<Skill skill={"Docker"} />
-							<Skill skill={"SQL Server"} />
-							<Skill skill={"Data Warehousing"} />
-							<Skill skill={"MongoDB"} />
-							<Skill skill={"Redis"} />
-						</div>
-						<div className="skills-column">
-							<p className="title">{"Concepts"}</p>
-							<Skill skill={"Server Side Dev"} />
-							<Skill skill={"Client Side Dev"} />
-							<Skill skill={"Architecture"} />
-							<Skill skill={"UML Models"} />
-							<Skill skill={"Unit Testing"} />
-							<Skill skill={"Websockets"} />
-							<Skill skill={"Webscraping"} />
-						</div>
+						<SkillColumn title={"Languages & Frameworks"} skills={skills.languages} />
+						<SkillColumn title={"Tools"} skills={skills.tools} />
+						<SkillColumn title={"Concepts"} skills={skills.concepts} />
 					</div>
 				</div>
 			</section>
@@ -126,12 +110,34 @@ class Trait extends React.Component {
 
 class Skill extends React.Component {
 	render() {
+		const { rating } = this.props;
+		const percentage = rating + "0%";
+		const widthStyle = { width: percentage };
+		const fraction = rating + "/10";
 		return (
 			<div className="column-container skill-container">
 				<div className="columns">
 					<p>{this.props.skill}</p>
 				</div>
-				<div className="columns progress-bar"></div>
+				<div className="columns progress-bar">
+					<div className="progress" style={widthStyle} />
+					<p>{fraction}</p>
+				</div>
+			</div>
+		);
+	}
+}
+
+class SkillColumn extends React.Component {
+	render() {
+		const skills = this.props.skills.map((s) => {
+			return <Skill skill={s.name} rating={s.rating} />;
+		});
+
+		return (
+			<div className="skills-column">
+				<p className="title">{this.props.title}</p>
+				{skills}
 			</div>
 		);
 	}
