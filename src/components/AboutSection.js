@@ -9,7 +9,7 @@ export default class AboutSection extends React.Component {
 	render() {
 		return (
 			<section id="about" className="container center-vertical" ref={this.props.refProp}>
-				<div className="content">
+				<div className="about-content">
 					<h3>ABOUT ME</h3>
 					<div className="border" />
 

@@ -3,10 +3,10 @@
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
-.content {
+.about-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -58,7 +58,7 @@ h3 {
 }
 
 .equal-children {
-  margin-top: 30px;
+  margin-top: 40px;
   flex: 1;
 }
 
@@ -87,8 +87,8 @@ h3 {
 }
 
 .description {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   margin: 0px;
   text-align: center;
 }
