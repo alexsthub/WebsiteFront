@@ -4,7 +4,7 @@ import "../styles/About.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlasses, faMonument, faTachometerAlt, faClock } from "@fortawesome/free-solid-svg-icons";
 
-// TODO: add some skills about me
+// TODO: Implement progress bar
 export default class AboutSection extends React.Component {
 	render() {
 		return (
@@ -31,6 +31,12 @@ export default class AboutSection extends React.Component {
 								and as an individual as I take on new challenges and learn new technologies or
 								practices.
 							</p>
+
+							<p>
+								I am currently looking for full time opportunities in Seattle, WA! If you would like
+								to get in contact or if you have any questions, please contact me via email or
+								LinkedIn.
+							</p>
 						</div>
 						<div className="center-vertical columns">
 							<img className="image" src={"/profilepicture.jpg"} alt={"Profile"} />
@@ -46,7 +52,7 @@ export default class AboutSection extends React.Component {
 						<Trait
 							title={"Readable"}
 							icon={faGlasses}
-							description={"Code that flows well and is easily legible."}
+							description={"Code that flows well, is easily legible, and maintainable. "}
 						/>
 						<Trait
 							title={"Reliable"}
@@ -56,19 +62,46 @@ export default class AboutSection extends React.Component {
 						<Trait
 							title={"Scalable"}
 							icon={faMonument}
-							description={"Handle lots of data and traffic without downtime or loss of quality."}
+							description={
+								"Handle lots of data and traffic with minimal downtime and loss of quality."
+							}
 						/>
 					</div>
+				</div>
 
+				<div className="about-content wide">
 					<div className="column-container equal-children">
 						<div className="skills-column">
 							<p className="title">{"Languages & Frameworks"}</p>
+							<Skill skill={"Python"} />
+							<Skill skill={"JavaScript"} />
+							<Skill skill={"TypeScript"} />
+							<Skill skill={"Node.js"} />
+							<Skill skill={"Golang"} />
+							<Skill skill={"SQL"} />
+							<Skill skill={"React.js"} />
+							<Skill skill={"React Native"} />
+							<Skill skill={"Express"} />
 						</div>
 						<div className="skills-column">
 							<p className="title">{"Tools"}</p>
+							<Skill skill={"AWS"} />
+							<Skill skill={"Git"} />
+							<Skill skill={"Docker"} />
+							<Skill skill={"SQL Server"} />
+							<Skill skill={"Data Warehousing"} />
+							<Skill skill={"MongoDB"} />
+							<Skill skill={"Redis"} />
 						</div>
 						<div className="skills-column">
 							<p className="title">{"Concepts"}</p>
+							<Skill skill={"Server Side Dev"} />
+							<Skill skill={"Client Side Dev"} />
+							<Skill skill={"Architecture"} />
+							<Skill skill={"UML Models"} />
+							<Skill skill={"Unit Testing"} />
+							<Skill skill={"Websockets"} />
+							<Skill skill={"Webscraping"} />
 						</div>
 					</div>
 				</div>
@@ -86,6 +119,19 @@ class Trait extends React.Component {
 				</div>
 				<p className="title">{this.props.title}</p>
 				<p className="description">{this.props.description}</p>
+			</div>
+		);
+	}
+}
+
+class Skill extends React.Component {
+	render() {
+		return (
+			<div className="column-container skill-container">
+				<div className="columns">
+					<p>{this.props.skill}</p>
+				</div>
+				<div className="columns progress-bar"></div>
 			</div>
 		);
 	}

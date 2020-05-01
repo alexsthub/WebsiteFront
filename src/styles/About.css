@@ -3,7 +3,7 @@
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-top: 60px;
+  padding-top: 40px;
   font-size: 18px;
 }
 
@@ -12,6 +12,10 @@
   flex-direction: column;
   justify-content: flex-start;
   width: 60%;
+}
+
+.wide {
+  width: 70%;
 }
 
 h3 {
@@ -84,7 +88,6 @@ h3 {
 .title {
   font-weight: bold;
   font-size: 24px;
-  text-align: center;
 }
 
 .description {
@@ -96,6 +99,20 @@ h3 {
 
 .skills-column {
   display: flex;
+  flex-direction: column;
   flex: 1;
-  justify-content: center;
+}
+
+.skill-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+}
+
+.skill-container p {
+  margin: 0px;
+}
+
+.progress-bar {
+  background-color: #04c2c9
 }

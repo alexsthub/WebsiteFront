@@ -18,7 +18,7 @@ export default class PortalBar extends React.Component {
 				link: Links.linkedin,
 				icon: faLinkedin,
 			},
-			{ title: "Email", link: Links.linkedin, icon: faEnvelope },
+			{ title: "Email", link: Links.email, icon: faEnvelope },
 		];
 		const options = socialList.map((option) => {
 			return (
@@ -50,7 +50,7 @@ class ClickableIcon extends React.Component {
 				trigger="mouseenter"
 				theme={"light"}
 			>
-				<a href={this.props.link}>
+				<a href={this.props.link} target="_blank">
 					<FontAwesomeIcon className="icon" icon={this.props.icon} />
 				</a>
 			</Tooltip>

@@ -60,7 +60,7 @@ export default class NavBar extends React.Component {
 	};
 
 	handleResume = (index) => {
-		window.scrollTo(0, 0);
+		window.scrollTo(0, 0, "auto");
 		this.setState({ selectedIndex: index });
 		console.log("HELLO");
 	};
