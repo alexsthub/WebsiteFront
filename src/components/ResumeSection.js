@@ -6,6 +6,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 // TODO: If I hit home here, then the navbar needs to go back to home
 // TODO: Download pdf
+// TODO: On the route, we need to bring the screen back up to the top
 export default class ResumeSection extends React.Component {
 	handleDownload = () => {
 		console.log("hello");

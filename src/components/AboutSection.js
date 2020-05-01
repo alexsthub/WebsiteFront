@@ -1,7 +1,10 @@
 import React from "react";
 import "../styles/About.css";
 
-// TODO: Add 4 qualities and some skills about me
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGlasses, faMonument, faTachometerAlt, faClock } from "@fortawesome/free-solid-svg-icons";
+
+// TODO: add some skills about me
 export default class AboutSection extends React.Component {
 	render() {
 		return (
@@ -33,8 +36,57 @@ export default class AboutSection extends React.Component {
 							<img className="image" src={"/profilepicture.jpg"} alt={"Profile"} />
 						</div>
 					</div>
+
+					<div className="column-container equal-children">
+						<Trait
+							title={"Efficient"}
+							icon={faTachometerAlt}
+							description={"I'm always thinking about the best way to do things and tradeoffs."}
+						/>
+						<Trait
+							title={"Readable"}
+							icon={faGlasses}
+							description={"Code that flows well and is easily legible."}
+						/>
+						<Trait
+							title={"Reliable"}
+							icon={faClock}
+							description={"Well planned projects and error handling to strengthen availability."}
+						/>
+						<Trait
+							title={"Scalable"}
+							icon={faMonument}
+							description={"Handle lots of data and traffic without downtime or loss of quality."}
+						/>
+					</div>
+
+					<div className="column-container equal-children">
+						<div className="skills-column">
+							<p className="title">{"Languages & Frameworks"}</p>
+						</div>
+						<div className="skills-column">
+							<p className="title">{"Tools"}</p>
+						</div>
+						<div className="skills-column">
+							<p className="title">{"Concepts"}</p>
+						</div>
+					</div>
 				</div>
 			</section>
+		);
+	}
+}
+
+class Trait extends React.Component {
+	render() {
+		return (
+			<div className="trait">
+				<div className="icon-shape">
+					<FontAwesomeIcon icon={this.props.icon} size={"2x"} />
+				</div>
+				<p className="title">{this.props.title}</p>
+				<p className="description">{this.props.description}</p>
+			</div>
 		);
 	}
 }

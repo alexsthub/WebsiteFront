@@ -11,13 +11,13 @@ export default class NavBar extends React.Component {
 	}
 
 	// TODO: Only do this when I'm on the home page
-	// componentDidMount() {
-	// 	window.addEventListener("scroll", this.listenToScroll);
-	// }
+	componentDidMount() {
+		window.addEventListener("scroll", this.listenToScroll);
+	}
 
-	// componentWillUnmount() {
-	// 	window.removeEventListener("scroll", this.listenToScroll);
-	// }
+	componentWillUnmount() {
+		window.removeEventListener("scroll", this.listenToScroll);
+	}
 
 	// TODO: Slightly imprecise. when i click on an option its a little off.
 	checkRange(index, yPos) {
@@ -60,6 +60,7 @@ export default class NavBar extends React.Component {
 	};
 
 	handleResume = (index) => {
+		window.scrollTo(0, 0);
 		this.setState({ selectedIndex: index });
 		console.log("HELLO");
 	};
