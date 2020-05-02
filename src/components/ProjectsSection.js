@@ -18,6 +18,16 @@ export default class ProjectsSection extends React.Component {
 		this.state = { showModal: false };
 	}
 
+	handleCardClick = () => {
+		document.body.style.overflow = "hidden";
+		this.setState({ showModal: true });
+	};
+
+	handleModalClose = () => {
+		document.body.style.overflow = null;
+		this.setState({ showModal: false });
+	};
+
 	render() {
 		const projectList = Projects.map((p) => {
 			return (
@@ -28,11 +38,18 @@ export default class ProjectsSection extends React.Component {
 					tools={p.tools}
 					github={p.github}
 					external={p.external ? p.external : null}
+					onClick={this.handleCardClick}
 				/>
 			);
 		});
+
+		const modal = this.state.showModal ? (
+			<Modal show={this.state.showModal} onClose={this.handleModalClose} />
+		) : null;
+
 		return (
 			<section id="Projects" className="section-container center-vertical" ref={this.props.refProp}>
+				{modal}
 				<div className="limit-width">
 					<h3>MY PROJECTS</h3>
 					<div className="border" />
@@ -59,7 +76,7 @@ class Project extends React.Component {
 			</a>
 		) : null;
 		return (
-			<div className="card">
+			<div className="card" onClick={this.props.onClick}>
 				<div className="card-content">
 					<p className="card-title">{this.props.title}</p>
 					<p className="card-descr">{this.props.shortDescr}</p>
