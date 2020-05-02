@@ -3,6 +3,7 @@ import "../styles/About.css";
 import "../styles/Experience.css";
 import "../styles/Projects.css";
 import { Projects } from "../constants/text.js";
+import Modal from "../components/Modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -12,6 +13,11 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 // https://medium.com/@lucksp_22012/pure-react-modal-6e562a317b85
 // TODO: Get that shit to the bottom
 export default class ProjectsSection extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { showModal: false };
+	}
+
 	render() {
 		const projectList = Projects.map((p) => {
 			return (
@@ -38,12 +44,13 @@ export default class ProjectsSection extends React.Component {
 	}
 }
 
+// TODO: Put tools and icons on the same line?
 class Project extends React.Component {
 	render() {
 		const tools = this.props.tools.join(", ");
 		const externalIcon = this.props.external ? (
 			<a href={this.props.external} target="_blank" rel="noopener noreferrer">
-				<FontAwesomeIcon className="card-icon" icon={faExternalLinkAlt} />
+				<FontAwesomeIcon className="card-icon space" icon={faExternalLinkAlt} />
 			</a>
 		) : null;
 		const githubIcon = this.props.github ? (
@@ -56,9 +63,7 @@ class Project extends React.Component {
 				<div className="card-content">
 					<p className="card-title">{this.props.title}</p>
 					<p className="card-descr">{this.props.shortDescr}</p>
-					<div className="tools-container">
-						<p className="card-tech">Tools: {tools}</p>
-					</div>
+					<p className="card-tech">Tools: {tools}</p>
 
 					<div className="card-icons">
 						{externalIcon}

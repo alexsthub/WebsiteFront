@@ -44,7 +44,10 @@
   margin-top: auto;
   margin-bottom: 0px;
   font-size: 14px;
-  color: lightgray
+  color: lightgray;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-icons {
@@ -69,16 +72,4 @@
 
 .space {
   margin-left: 10px;
-}
-
-.tools-container {
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
-}
-
-.tools-container p {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
 }
