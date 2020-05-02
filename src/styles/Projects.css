@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  background: #4e4a4a;
+  background: #383D48;
   font-size: 1.5rem;
   color: #fff;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
@@ -69,4 +69,16 @@
 
 .space {
   margin-left: 10px;
+}
+
+.tools-container {
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+.tools-container p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

@@ -2,30 +2,36 @@ import React from "react";
 import "../styles/About.css";
 import "../styles/Experience.css";
 import "../styles/Projects.css";
+import { Projects } from "../constants/text.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 // TODO: Click on it to show modal of more information.
-// TODO: Style the card to not look like shit
+// https://medium.com/@lucksp_22012/pure-react-modal-6e562a317b85
+// TODO: Get that shit to the bottom
 export default class ProjectsSection extends React.Component {
 	render() {
+		const projectList = Projects.map((p) => {
+			return (
+				<Project
+					key={p.title}
+					title={p.title}
+					shortDescr={p.shortDescr}
+					tools={p.tools}
+					github={p.github}
+					external={p.external ? p.external : null}
+				/>
+			);
+		});
 		return (
 			<section id="Projects" className="section-container center-vertical" ref={this.props.refProp}>
 				<div className="limit-width">
 					<h3>MY PROJECTS</h3>
 					<div className="border" />
 
-					<div className="basic-grid">
-						<Project />
-						<div className="card">2</div>
-						<div className="card">3</div>
-						<div className="card">5</div>
-						<div className="card">6</div>
-						<div className="card">7</div>
-						<div className="card">8</div>
-					</div>
+					<div className="basic-grid">{projectList}</div>
 				</div>
 			</section>
 		);
@@ -34,34 +40,29 @@ export default class ProjectsSection extends React.Component {
 
 class Project extends React.Component {
 	render() {
+		const tools = this.props.tools.join(", ");
+		const externalIcon = this.props.external ? (
+			<a href={this.props.external} target="_blank" rel="noopener noreferrer">
+				<FontAwesomeIcon className="card-icon" icon={faExternalLinkAlt} />
+			</a>
+		) : null;
+		const githubIcon = this.props.github ? (
+			<a href={this.props.github} target="_blank" rel="noopener noreferrer">
+				<FontAwesomeIcon className="card-icon space" icon={faGithub} />
+			</a>
+		) : null;
 		return (
 			<div className="card">
 				<div className="card-content">
-					<p className="card-title">Varmada</p>
-					<p className="card-descr">
-						Creating a service that acts like the middleman between your home and a shipping carrier
-						for IOS and Android.
-					</p>
-					<div className="test">
-						<p className="card-tech">Tools:</p>
-						<p className="card-tech">React Native, AWS Amplify</p>
+					<p className="card-title">{this.props.title}</p>
+					<p className="card-descr">{this.props.shortDescr}</p>
+					<div className="tools-container">
+						<p className="card-tech">Tools: {tools}</p>
 					</div>
 
 					<div className="card-icons">
-						<a
-							href={"https://wjbarng.wixsite.com/varmada"}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<FontAwesomeIcon className="card-icon" icon={faExternalLinkAlt} />
-						</a>
-						<a
-							href={"https://github.com/alexsthub/Varmada"}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<FontAwesomeIcon className="card-icon space" icon={faGithub} />
-						</a>
+						{externalIcon}
+						{githubIcon}
 					</div>
 				</div>
 			</div>

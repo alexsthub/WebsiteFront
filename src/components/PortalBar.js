@@ -8,7 +8,6 @@ import { Links } from "../constants/text";
 import "react-tippy/dist/tippy.css";
 import { Tooltip } from "react-tippy";
 
-// TODO: Show popper on hover
 export default class PortalBar extends React.Component {
 	render() {
 		const socialList = [

@@ -11,6 +11,8 @@ import ResumeSection from "./components/ResumeSection";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
+// TODO: Dare I do a lightmode/darkmode?
+// TODO: Animations?
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
