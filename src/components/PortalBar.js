@@ -50,7 +50,7 @@ class ClickableIcon extends React.Component {
 				trigger="mouseenter"
 				theme={"light"}
 			>
-				<a href={this.props.link} target="_blank">
+				<a href={this.props.link} target="_blank" rel="noopener noreferrer">
 					<FontAwesomeIcon className="icon" icon={this.props.icon} />
 				</a>
 			</Tooltip>

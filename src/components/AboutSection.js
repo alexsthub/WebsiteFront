@@ -118,7 +118,7 @@ class Skill extends React.Component {
 class SkillColumn extends React.Component {
 	render() {
 		const skills = this.props.skills.map((s) => {
-			return <Skill skill={s.name} rating={s.rating} />;
+			return <Skill key={s.name} skill={s.name} rating={s.rating} />;
 		});
 
 		return (
