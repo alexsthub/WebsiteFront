@@ -11,7 +11,6 @@ import ResumeSection from "./components/ResumeSection";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
-// TODO: Work on about me
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);

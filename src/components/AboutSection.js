@@ -3,25 +3,12 @@ import "../styles/About.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGlasses, faMonument, faTachometerAlt, faClock } from "@fortawesome/free-solid-svg-icons";
-import { skills } from "../constants/skills.js";
+import { Skills } from "../constants/text.js";
 
-// TODO: Implement progress bar
 export default class AboutSection extends React.Component {
 	render() {
-		const languageSkills = skills.languages.map((s) => {
-			return <Skill skill={s.name} rating={s.rating} />;
-		});
-
-		const toolSkills = skills.tools.map((s) => {
-			return <Skill skill={s.name} rating={s.rating} />;
-		});
-
-		const conceptSkills = skills.concepts.map((s) => {
-			return <Skill skill={s.name} rating={s.rating} />;
-		});
-
 		return (
-			<section id="about" className="about-container center-vertical" ref={this.props.refProp}>
+			<section id="about" className="section-container center-vertical" ref={this.props.refProp}>
 				<div className="about-content">
 					<h3>ABOUT ME</h3>
 					<div className="border" />
@@ -84,9 +71,9 @@ export default class AboutSection extends React.Component {
 
 				<div className="about-content wide">
 					<div className="column-container equal-children">
-						<SkillColumn title={"Languages & Frameworks"} skills={skills.languages} />
-						<SkillColumn title={"Tools"} skills={skills.tools} />
-						<SkillColumn title={"Concepts"} skills={skills.concepts} />
+						<SkillColumn title={"Languages & Frameworks"} skills={Skills.languages} />
+						<SkillColumn title={"Tools"} skills={Skills.tools} />
+						<SkillColumn title={"Concepts"} skills={Skills.concepts} />
 					</div>
 				</div>
 			</section>

@@ -1,0 +1,14 @@
+.limit-width {
+  width: 60%;
+}
+
+.experience-container p {
+  margin: 2px 0px 2px 0px;
+}
+
+.experience-container a {
+  text-decoration: inherit;
+  color: rgb(227, 27, 109);
+  font-weight: bold;
+  font-size: 24px;
+}

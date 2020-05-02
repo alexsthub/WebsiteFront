@@ -1,12 +1,55 @@
 import React from "react";
 import "../styles/About.css";
+import "../styles/Experience.css";
+import { Experiences } from "../constants/text.js";
 
 export default class ExperienceSection extends React.Component {
 	render() {
+		const experiencePoints = Experiences.map((e) => {
+			return (
+				<Experience
+					title={e.title}
+					jobTitle={e.jobTitle}
+					link={e.link}
+					start={e.start}
+					end={e.end}
+					points={e.points}
+				/>
+			);
+		});
+
 		return (
-			<section id="experience" className="container" ref={this.props.refProp}>
-				<p>Experience</p>
+			<section
+				id="experience"
+				className="section-container center-vertical"
+				ref={this.props.refProp}
+			>
+				<div className="limit-width">
+					<h3>MY EXPERIENCE</h3>
+					<div className="border" />
+
+					{experiencePoints}
+				</div>
 			</section>
+		);
+	}
+}
+
+class Experience extends React.Component {
+	render() {
+		const dateRange = this.props.start + "-" + this.props.end;
+		const points = this.props.points.map((p) => {
+			return <li>{p}</li>;
+		});
+		return (
+			<div className="experience-container">
+				<a href={this.props.link} target="_blank">
+					{this.props.title}
+				</a>
+				<p>{this.props.jobTitle}</p>
+				<p>{dateRange}</p>
+				<ul>{points}</ul>
+			</div>
 		);
 	}
 }
