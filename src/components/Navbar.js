@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/NavBar.css";
 
 import NavOption from "./NavOption";
-import { Link } from "react-router-dom";
+import Resume from "../misc/resume.pdf";
 
 export default class NavBar extends React.Component {
 	constructor(props) {
@@ -10,7 +10,6 @@ export default class NavBar extends React.Component {
 		this.state = { selectedIndex: 0 };
 	}
 
-	// TODO: Only do this when I'm on the home page
 	componentDidMount() {
 		window.addEventListener("scroll", this.listenToScroll);
 	}
@@ -19,7 +18,6 @@ export default class NavBar extends React.Component {
 		window.removeEventListener("scroll", this.listenToScroll);
 	}
 
-	// TODO: Slightly imprecise. when i click on an option its a little off.
 	checkRange(index, yPos) {
 		const options = this.props.options;
 		const ref = this.props.refList[options[index]];
@@ -31,7 +29,6 @@ export default class NavBar extends React.Component {
 		return false;
 	}
 
-	// TODO: Hardcoded to 4. should be this.props.options.length
 	listenToScroll = () => {
 		const yPos = window.scrollY + 64;
 		let start = this.state.selectedIndex;
@@ -52,33 +49,17 @@ export default class NavBar extends React.Component {
 
 	handleClick = (event, index) => {
 		const section = event.currentTarget.lastChild.innerHTML;
-		if (section !== "Resume") {
-			const selectedRef = this.props.refList[section];
-			window.scrollTo(0, selectedRef.current.offsetTop - 64);
-			this.setState({ selectedIndex: index });
-		}
+		const selectedRef = this.props.refList[section];
+		window.scrollTo(0, selectedRef.current.offsetTop - 62);
+		this.setState({ selectedIndex: index });
 	};
 
-	handleResume = (index) => {
-		window.scrollTo(0, 0, "auto");
-		this.setState({ selectedIndex: index });
+	handleResume = () => {
+		window.open(Resume, "_blank");
 	};
 
 	render() {
 		const renderedOptions = this.props.options.map((option, index) => {
-			if (option === "Resume") {
-				return (
-					<Link to="/resume" key={option} style={{ textDecoration: "none", color: "inherit" }}>
-						<NavOption
-							idx={index}
-							text={option}
-							selected={index === this.state.selectedIndex}
-							onClick={() => this.handleResume(index)}
-						/>
-					</Link>
-				);
-			}
-
 			return (
 				<NavOption
 					key={option}
@@ -89,6 +70,16 @@ export default class NavBar extends React.Component {
 				/>
 			);
 		});
+
+		const resumeOption = (
+			<NavOption
+				idx={this.props.options.length}
+				text={"Resume"}
+				selected={this.props.options.length === this.state.selectedIndex}
+				onClick={this.handleResume}
+			/>
+		);
+		renderedOptions.push(resumeOption);
 
 		return (
 			<div className="navbar">

@@ -32,13 +32,13 @@ export default class AboutSection extends React.Component {
 								practices.
 							</p>
 
-							<p>
+							<p style={{ marginBottom: 0 }}>
 								My recent projects are far from perfect, but I strive to do my best and learn from
 								my mistakes. I believe that as long as I maintain this ideal, I will be able to
 								succeed in any context.
 							</p>
 
-							<p>
+							<p style={{ marginBottom: 0 }}>
 								When I'm not working, I like to relax with strategy games and finding new recipes to
 								try in the kitchen!
 							</p>

@@ -8,14 +8,7 @@ import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
-import ResumeSection from "./sections/ResumeSection";
 
-import { Route, Switch, Redirect } from "react-router-dom";
-
-// TODO: Dare I do a lightmode/darkmode?
-// TODO: Animations?
-// TODO: LOGO / Favicon
-// TODO: Deploy
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -38,23 +31,15 @@ export default class App extends React.Component {
 				<PortalBar />
 
 				<main>
-					<Switch>
-						<Route exact path="/">
-							<Header refProp={this.refList.Home} aboutRef={this.refList.About} />
-							<AboutSection refProp={this.refList.About} />
-							<ExperienceSection refProp={this.refList.Experience} />
-							<ProjectsSection refProp={this.refList.Projects} />
-							<ContactSection refProp={this.refList.Contact} />
-						</Route>
-						<Route path="/resume">
-							<ResumeSection />
-						</Route>
-						<Redirect to="/" />
-					</Switch>
+					<Header refProp={this.refList.Home} aboutRef={this.refList.About} />
+					<AboutSection refProp={this.refList.About} />
+					<ExperienceSection refProp={this.refList.Experience} />
+					<ProjectsSection refProp={this.refList.Projects} />
+					<ContactSection refProp={this.refList.Contact} />
 				</main>
 			</div>
 		);
 	}
 }
 
-const options = ["Home", "About", "Experience", "Projects", "Contact", "Resume"];
+const options = ["Home", "About", "Experience", "Projects", "Contact"];
