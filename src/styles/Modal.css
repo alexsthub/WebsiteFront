@@ -6,9 +6,8 @@
   height: 80%;
   width: 40%;
   z-index: 100;
-  background-color: #383D48;
-  box-shadow: 5px 5px 0px 1px rgba(0, 0, 0, 0.2);
-
+  background-color: #282c34;
+  box-shadow: 5px 5px 0px 1px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transition: 0.2s opacity ease-in-out;
 }
@@ -19,7 +18,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 99;
+  z-index: 5;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -29,4 +28,23 @@
 
 .fade-out {
   opacity: 0;
+}
+
+.modal-content {
+  margin: 20px;
+}
+
+.close-container {}
+
+.close-container:hover {
+  cursor: pointer;
+}
+
+.close {
+  font-size: 24px;
+  transition: 0.3s color ease-in-out;
+}
+
+.close-container:hover>.close {
+  color: rgba(227, 27, 109);
 }

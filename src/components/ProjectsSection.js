@@ -43,13 +43,11 @@ export default class ProjectsSection extends React.Component {
 			);
 		});
 
-		const modal = this.state.showModal ? (
-			<Modal show={this.state.showModal} onClose={this.handleModalClose} />
-		) : null;
-
 		return (
 			<section id="Projects" className="section-container center-vertical" ref={this.props.refProp}>
-				{modal}
+				{this.state.showModal ? (
+					<Modal show={this.state.showModal} onClose={this.handleModalClose} />
+				) : null}
 				<div className="limit-width">
 					<h3>MY PROJECTS</h3>
 					<div className="border" />
@@ -80,11 +78,12 @@ class Project extends React.Component {
 				<div className="card-content">
 					<p className="card-title">{this.props.title}</p>
 					<p className="card-descr">{this.props.shortDescr}</p>
-					<p className="card-tech">Tools: {tools}</p>
-
-					<div className="card-icons">
-						{externalIcon}
-						{githubIcon}
+					<div className="flex-row">
+						<p className="card-tech">Tools: {tools}</p>
+						<div className="card-icons">
+							{externalIcon}
+							{githubIcon}
+						</div>
 					</div>
 				</div>
 			</div>

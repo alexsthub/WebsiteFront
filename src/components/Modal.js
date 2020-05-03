@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/Modal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
+// TODO: Fill in the modal
 export default class Modal extends React.Component {
 	constructor(props) {
 		super(props);
@@ -31,30 +34,36 @@ export default class Modal extends React.Component {
 
 	handleClose = (e) => {
 		e.preventDefault();
-		this.props.onClose();
+		this.setState({ fadeType: "out" });
 	};
 
 	transitionEnd = (e) => {
 		if (e.propertyName !== "opacity" || this.state.fadeType === "in") return;
-
 		if (this.state.fadeType === "out") {
 			this.props.onClose();
 		}
 	};
 
 	render() {
-		// console.log(this.state.fadeType);
-		// const backgroundFade =
-		// 	this.state.fadeType && this.state.fadeType === "in" ? "in-background" : null;
-		// console.log(backgroundFade);
 		return (
-			<div className={`modal-background`} onMouseDown={this.handleClose}>
+			<div>
 				<div className={`modal fade-${this.state.fadeType}`} onTransitionEnd={this.transitionEnd}>
-					<h3>JUST TESTING</h3>
-					<div onClick={this.handleClose}>x</div>
+					<div className="modal-content">
+						<div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
+							<div style={{ flex: 1, wordWrap: "break-word" }}>
+								<h3>
+									Varmada Varmada Varmada Varmada Varmada Varmada Varmada Varmada Varmada Varmada
+								</h3>
+							</div>
+
+							<div className="close-container" onClick={this.handleClose}>
+								<FontAwesomeIcon className="close" icon={faWindowClose} />
+							</div>
+						</div>
+					</div>
 				</div>
+				<div className={`modal-background`} onMouseDown={this.handleClose} />
 			</div>
 		);
 	}
 }
-// TODO: Background fade and all fade out
