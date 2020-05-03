@@ -42,6 +42,3 @@
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-
-/* TODO: Align self is shitty option. Why isn't it centering from justify content? */
-/* TODO: Container sizing is weird */

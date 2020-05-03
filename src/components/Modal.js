@@ -84,12 +84,14 @@ export default class Modal extends React.Component {
 				<div className={`modal fade-${this.state.fadeType}`} onTransitionEnd={this.transitionEnd}>
 					<div className="modal-content">
 						{header}
-						<div className="modal-description">
+						<div className="modal-description flex">
 							<div className="flex">{descriptions}</div>
-							<p style={{ color: "lightgray" }}>Tools: {tools}</p>
-							<div className="flex-row card-icons justify-start large-icon">
-								{externalIcon}
-								{githubIcon}
+							<div className="modal-footer">
+								<p style={{ color: "lightgray" }}>Tools: {tools}</p>
+								<div className="flex-row card-icons justify-start large-icon">
+									{externalIcon}
+									{githubIcon}
+								</div>
 							</div>
 						</div>
 					</div>

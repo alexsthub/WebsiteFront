@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-// TODO: When clicking on icon, it will also click on the card. DONT WANT
 export default class ProjectsSection extends React.Component {
 	constructor(props) {
 		super(props);
@@ -17,7 +16,6 @@ export default class ProjectsSection extends React.Component {
 	}
 
 	handleCardClick = (project) => {
-		console.log(project);
 		document.body.style.overflow = "hidden";
 		this.setState({ showModal: true, selectedProject: project });
 	};
@@ -68,17 +66,22 @@ export default class ProjectsSection extends React.Component {
 }
 
 class Project extends React.Component {
+	handleIconClick = (e, link) => {
+		e.stopPropagation();
+		window.open(link, "_blank");
+	};
+
 	render() {
 		const tools = this.props.tools.join(", ");
 		const externalIcon = this.props.external ? (
-			<a href={this.props.external} target="_blank" rel="noopener noreferrer">
+			<div onClick={(e) => this.handleIconClick(e, this.props.external)}>
 				<FontAwesomeIcon className="card-icon space" icon={faExternalLinkAlt} />
-			</a>
+			</div>
 		) : null;
 		const githubIcon = this.props.github ? (
-			<a href={this.props.github} target="_blank" rel="noopener noreferrer">
+			<div onClick={(e) => this.handleIconClick(e, this.props.github)}>
 				<FontAwesomeIcon className="card-icon space" icon={faGithub} />
-			</a>
+			</div>
 		) : null;
 		return (
 			<div className="card" onClick={this.props.onClick}>
