@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-// TODO: Put data into the modal
+// TODO: When clicking on icon, it will also click on the card. DONT WANT
 export default class ProjectsSection extends React.Component {
 	constructor(props) {
 		super(props);
