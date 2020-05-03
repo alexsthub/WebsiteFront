@@ -36,13 +36,13 @@ export default class NavBar extends React.Component {
 		const yPos = window.scrollY + 64;
 		let start = this.state.selectedIndex;
 		let end = this.state.selectedIndex + 1;
-		while (start >= 0 || end < 4) {
+		while (start >= 0 || end < 5) {
 			if (start >= 0 && this.checkRange(start, yPos)) {
 				this.setState({ selectedIndex: start });
 				break;
 			}
 			start--;
-			if (end < 4 && this.checkRange(end, yPos)) {
+			if (end < 5 && this.checkRange(end, yPos)) {
 				this.setState({ selectedIndex: end });
 				break;
 			}
@@ -62,7 +62,6 @@ export default class NavBar extends React.Component {
 	handleResume = (index) => {
 		window.scrollTo(0, 0, "auto");
 		this.setState({ selectedIndex: index });
-		console.log("HELLO");
 	};
 
 	render() {

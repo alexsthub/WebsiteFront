@@ -21,7 +21,7 @@ export default class AboutSection extends React.Component {
 									{" "}
 									University of Washington{" "}
 								</a>
-								with a B.S. in{" "}
+								(graduate of 2020) with a B.S. in{" "}
 								<a className="link" href="https://ischool.uw.edu/programs/informatics">
 									Informatics
 								</a>
@@ -33,9 +33,14 @@ export default class AboutSection extends React.Component {
 							</p>
 
 							<p>
-								I am currently looking for full time opportunities in Seattle, WA! If you would like
-								to get in contact or if you have any questions, please contact me via email or
-								LinkedIn.
+								My recent projects are far from perfect, but I strive to do my best and learn from
+								my mistakes. I believe that as long as I maintain this ideal, I will be able to
+								succeed in any context.
+							</p>
+
+							<p>
+								When I'm not working, I like to relax with strategy games and finding new recipes to
+								try in the kitchen!
 							</p>
 						</div>
 						<div className="center-vertical columns">

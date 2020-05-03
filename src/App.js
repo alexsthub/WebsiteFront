@@ -4,10 +4,11 @@ import "./styles/App.css";
 import NavBar from "./components/Navbar";
 import PortalBar from "./components/PortalBar";
 import Header from "./components/Header";
-import AboutSection from "./components/AboutSection";
-import ExperienceSection from "./components/ExperienceSection";
-import ProjectsSection from "./components/ProjectsSection";
-import ResumeSection from "./components/ResumeSection";
+import AboutSection from "./sections/AboutSection";
+import ExperienceSection from "./sections/ExperienceSection";
+import ProjectsSection from "./sections/ProjectsSection";
+import ContactSection from "./sections/ContactSection";
+import ResumeSection from "./sections/ResumeSection";
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
@@ -43,6 +44,7 @@ export default class App extends React.Component {
 							<AboutSection refProp={this.refList.About} />
 							<ExperienceSection refProp={this.refList.Experience} />
 							<ProjectsSection refProp={this.refList.Projects} />
+							<ContactSection refProp={this.refList.Contact} />
 						</Route>
 						<Route path="/resume">
 							<ResumeSection />

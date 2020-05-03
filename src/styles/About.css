@@ -8,6 +8,11 @@
   padding-bottom: 80px;
 }
 
+.contact-container {
+  min-height: 70vh;
+  padding-top: 120px;
+}
+
 .about-content {
   display: flex;
   flex-direction: column;
