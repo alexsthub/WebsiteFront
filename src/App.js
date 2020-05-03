@@ -13,6 +13,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 
 // TODO: Dare I do a lightmode/darkmode?
 // TODO: Animations?
+// TODO: LOGO / Favicon
+// TODO: Deploy
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);

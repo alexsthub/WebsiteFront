@@ -16,14 +16,15 @@ export default class ProjectsSection extends React.Component {
 		this.state = { showModal: false, selectedProject: null };
 	}
 
-	handleCardClick = () => {
+	handleCardClick = (project) => {
+		console.log(project);
 		document.body.style.overflow = "hidden";
-		this.setState({ showModal: true });
+		this.setState({ showModal: true, selectedProject: project });
 	};
 
 	handleModalClose = () => {
 		document.body.style.overflow = null;
-		this.setState({ showModal: false });
+		this.setState({ showModal: false, selectedProject: null });
 	};
 
 	render() {
@@ -36,20 +37,23 @@ export default class ProjectsSection extends React.Component {
 					tools={p.tools}
 					github={p.github}
 					external={p.external ? p.external : null}
-					onClick={this.handleCardClick}
+					onClick={() => this.handleCardClick(p)}
 				/>
 			);
 		});
 
 		return (
 			<section id="Projects" className="section-container center-vertical" ref={this.props.refProp}>
-				{this.state.showModal ? (
+				{this.state.showModal && this.state.selectedProject ? (
 					<Modal
 						show={this.state.showModal}
 						onClose={this.handleModalClose}
-						title={"Varmada"}
-						github={"https://github.com/alexsthub/Varmada"}
-						external={"https://wjbarng.wixsite.com/varmada"}
+						title={this.state.selectedProject.title}
+						github={this.state.selectedProject.github}
+						external={this.state.selectedProject.external}
+						shortDescription={this.state.selectedProject.shortDescr}
+						descriptions={this.state.selectedProject.longDescr}
+						tools={this.state.selectedProject.tools}
 					/>
 				) : null}
 				<div className="limit-width">
@@ -63,7 +67,6 @@ export default class ProjectsSection extends React.Component {
 	}
 }
 
-// TODO: Put tools and icons on the same line?
 class Project extends React.Component {
 	render() {
 		const tools = this.props.tools.join(", ");
