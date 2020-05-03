@@ -9,13 +9,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-// TODO: Click on it to show modal of more information.
-// https://medium.com/@lucksp_22012/pure-react-modal-6e562a317b85
-// TODO: Get that shit to the bottom
+// TODO: Put data into the modal
 export default class ProjectsSection extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { showModal: false };
+		this.state = { showModal: false, selectedProject: null };
 	}
 
 	handleCardClick = () => {
@@ -46,7 +44,13 @@ export default class ProjectsSection extends React.Component {
 		return (
 			<section id="Projects" className="section-container center-vertical" ref={this.props.refProp}>
 				{this.state.showModal ? (
-					<Modal show={this.state.showModal} onClose={this.handleModalClose} />
+					<Modal
+						show={this.state.showModal}
+						onClose={this.handleModalClose}
+						title={"Varmada"}
+						github={"https://github.com/alexsthub/Varmada"}
+						external={"https://wjbarng.wixsite.com/varmada"}
+					/>
 				) : null}
 				<div className="limit-width">
 					<h3>MY PROJECTS</h3>
