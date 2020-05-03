@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-// TODO: Push tools and shit to the bottom if there is no overflow
 export default class Modal extends React.Component {
 	constructor(props) {
 		super(props);
@@ -86,6 +85,7 @@ export default class Modal extends React.Component {
 						{header}
 						<div className="modal-description flex">
 							<div className="flex">{descriptions}</div>
+
 							<div className="modal-footer">
 								<p style={{ color: "lightgray" }}>Tools: {tools}</p>
 								<div className="flex-row card-icons justify-start large-icon">
