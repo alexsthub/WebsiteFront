@@ -94,7 +94,7 @@ export default class NavBar extends React.Component {
 		return (
 			<div className="navbar">
 				<div className="logo-container">
-					<img className="logo" src={"/logo2.png"} alt={"logo"} />
+					<img className="logo" src={"/logo.png"} alt={"logo"} />
 				</div>
 				<div className="options-container">{renderedOptions}</div>
 			</div>
