@@ -73,6 +73,7 @@ export default class NavBar extends React.Component {
 
 		const resumeOption = (
 			<NavOption
+				key={"Resume"}
 				idx={this.props.options.length}
 				text={"Resume"}
 				selected={this.props.options.length === this.state.selectedIndex}

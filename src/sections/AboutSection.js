@@ -17,12 +17,22 @@ export default class AboutSection extends React.Component {
 						<div className="center-vertical columns">
 							<p id="about-description">
 								I'm Alex, a software engineer based in Seattle, WA! I am a recent graduate from the
-								<a className="link" href="https://www.washington.edu/">
+								<a
+									className="link"
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://www.washington.edu/"
+								>
 									{" "}
 									University of Washington{" "}
 								</a>
 								(graduate of 2020) with a B.S. in{" "}
-								<a className="link" href="https://ischool.uw.edu/programs/informatics">
+								<a
+									className="link"
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://ischool.uw.edu/programs/informatics"
+								>
 									Informatics
 								</a>
 								. My goal is to become an established full stack developer. Through coursework and
