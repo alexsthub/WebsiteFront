@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
+// TODO: Implement resizing (https://youtu.be/vxljFhP2krI?t=1485)
+// TODO: Add the static stars
+// TODO: Make the momentum logic
 const MAX_CIRCLES = 2;
-const height = window.innerHeight;
-const width = window.innerWidth;
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -18,8 +19,8 @@ export default class Header extends React.Component {
 
 	componentDidMount = () => {
 		this.canvas = this.canvas.current;
-		this.canvas.width = width;
-		this.canvas.height = height;
+		this.canvas.width = window.innerWidth;
+		this.canvas.height = window.innerHeight;
 		this.ctx = this.canvas.getContext("2d");
 
 		this.circleList = this.generateCircles(this.ctx);
@@ -29,11 +30,70 @@ export default class Header extends React.Component {
 
 	generateBackground = () => {
 		const c = this.ctx;
-		const gradient = c.createLinearGradient(50, 0, 0, window.innerHeight);
+		const width = window.innerWidth;
+		const height = window.innerHeight;
+
+		this.genBackgroundGradient(c, width, height);
+
+		this.generateMountain(c, width, height, "#646973", "#202630", [
+			[-0.2, 1],
+			[0.5, 0.2],
+			[1.2, 1],
+		]);
+
+		// Second row
+		this.generateMountain(c, width, height, "#4f5561", "#292c36", [
+			[-0.15, 1],
+			[0.25, 0.4],
+			[0.65, 1],
+		]);
+		this.generateMountain(c, width, height, "#4f5561", "#292c36", [
+			[1.15, 1],
+			[0.75, 0.4],
+			[0.35, 1],
+		]);
+
+		// Bottom row
+		this.generateMountain(c, width, height, "#282c34", "#282c34", [
+			[-0.1, 1],
+			[0.2, 0.75],
+			[0.5, 1],
+		]);
+		this.generateMountain(c, width, height, "#282c34", "#282c34", [
+			[0.2, 1],
+			[0.5, 0.75],
+			[0.8, 1],
+		]);
+		this.generateMountain(c, width, height, "#282c34", "#282c34", [
+			[1.1, 1],
+			[0.8, 0.75],
+			[0.5, 1],
+		]);
+	};
+
+	generateMountain = (c, width, height, colorStart, colorEnd, points) => {
+		const gradient = c.createLinearGradient(0, 0, 0, height);
+		gradient.addColorStop(0, colorStart);
+		gradient.addColorStop(1, colorEnd);
+		c.fillStyle = gradient;
+		c.beginPath();
+		for (let i = 0; i < points.length; i++) {
+			const multipliers = points[i];
+			if (i === 0) {
+				c.moveTo(width * multipliers[0], height * multipliers[1]);
+			} else {
+				c.lineTo(width * multipliers[0], height * multipliers[1]);
+			}
+		}
+		c.fill();
+	};
+
+	genBackgroundGradient = (c, width, height) => {
+		let gradient = c.createLinearGradient(50, 0, 0, height);
 		gradient.addColorStop(0, "rgba(20, 22, 26, 1)");
 		gradient.addColorStop(1, "rgba(69, 77, 94, 1)");
 		c.fillStyle = gradient;
-		c.fillRect(0, 0, window.innerWidth, window.innerHeight);
+		c.fillRect(0, 0, width, height);
 	};
 
 	generateCircles = (ctx) => {
@@ -41,12 +101,12 @@ export default class Header extends React.Component {
 
 		for (let i = 0; i < MAX_CIRCLES; i++) {
 			const radius = 10;
-			const x = Math.random() * (width - radius * 2) + radius;
+			const x = Math.random() * (this.canvas.width - radius * 2) + radius;
 			const y = 60;
 			const dx = (Math.random() - 0.5) * 8;
 			const dy = 5;
 
-			const circle = new Circle(x, y, dx, dy, radius, this.canvas.width, height, ctx);
+			const circle = new Circle(x, y, dx, dy, radius, this.canvas.width, this.canvas.height, ctx);
 			circleList.push(circle);
 		}
 
