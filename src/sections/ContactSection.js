@@ -3,8 +3,9 @@ import "../styles/About.css";
 import { Links, MiscText } from "../constants/text";
 
 export default class ContactSection extends React.Component {
-	handleContact = () => {
-		window.open(Links.email, "_blank");
+	handleContact = (e) => {
+		window.open(Links.email, "mail");
+		e.preventDefault();
 	};
 
 	render() {
@@ -21,7 +22,8 @@ export default class ContactSection extends React.Component {
 					<p style={{ textAlign: "center" }}>{MiscText.contact}</p>
 
 					<div className="learn-more-button" style={{ marginTop: 30 }} onClick={this.handleContact}>
-						Let's Get in Touch
+						<p style={{ margin: 0 }}>Let's Get in Touch:</p>
+						<p style={{ margin: 0 }}>alextan785@gmail.com</p>
 					</div>
 				</div>
 

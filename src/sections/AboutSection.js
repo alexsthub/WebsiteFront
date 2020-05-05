@@ -37,15 +37,15 @@ export default class AboutSection extends React.Component {
 								</a>
 								. My goal is to become an established full stack developer. Through coursework and
 								internship experience, I have grown a passion for creating programs that are
-								efficient, intuitive, readable, and scaleable. I am always looking to grow my career
-								and as an individual as I take on new challenges and learn new technologies or
-								practices.
+								efficient, intuitive, readable, and scaleable. I am consistently looking for ways to
+								grow both in my career and as an individual. I am eager to take on new challenges
+								and learn new technologies and practices.
 							</p>
 
 							<p style={{ marginBottom: 0 }}>
-								My recent projects are far from perfect, but I strive to do my best and learn from
-								my mistakes. I believe that as long as I maintain this ideal, I will be able to
-								succeed in any context.
+								My recent projects are not perfect, but I strive to do my best and learn from my
+								mistakes. I believe that as long as I maintain this ideal, I will be able to succeed
+								in any context.
 							</p>
 
 							<p style={{ marginBottom: 0 }}>

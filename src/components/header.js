@@ -10,7 +10,7 @@ import { HeaderText } from "../constants/text";
 
 export default class Header extends React.Component {
 	handleLearnMore = () => {
-		window.scrollTo(0, this.props.aboutRef.current.offsetTop - 64);
+		window.scrollTo(0, this.props.aboutRef.current.offsetTop - 60);
 	};
 
 	render() {
