@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #282c34;
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,12 @@
 }
 
 .header-content {
-  z-index: 5;
+  z-index: 99;
+  position: absolute;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .text {
@@ -46,11 +51,6 @@
   transform: rotate(90deg);
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
+.canvas-background {
+  z-index: -10;
 }

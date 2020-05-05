@@ -27,11 +27,20 @@ export default class Header extends React.Component {
 		this.animate();
 	};
 
+	generateBackground = () => {
+		const c = this.ctx;
+		const gradient = c.createLinearGradient(50, 0, 0, window.innerHeight);
+		gradient.addColorStop(0, "rgba(20, 22, 26, 1)");
+		gradient.addColorStop(1, "rgba(69, 77, 94, 1)");
+		c.fillStyle = gradient;
+		c.fillRect(0, 0, window.innerWidth, window.innerHeight);
+	};
+
 	generateCircles = (ctx) => {
 		let circleList = [];
 
 		for (let i = 0; i < MAX_CIRCLES; i++) {
-			const radius = 15;
+			const radius = 10;
 			const x = Math.random() * (width - radius * 2) + radius;
 			const y = 60;
 			const dx = (Math.random() - 0.5) * 8;
@@ -47,6 +56,7 @@ export default class Header extends React.Component {
 	animate = () => {
 		requestAnimationFrame(this.animate);
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.generateBackground();
 		this.circleList.forEach((c) => {
 			c.update();
 		});
@@ -59,7 +69,8 @@ export default class Header extends React.Component {
 	render() {
 		return (
 			<div className="App-header" ref={this.props.refProp}>
-				<canvas ref={this.canvas}>
+				<canvas className="canvas-background" ref={this.canvas} />
+				<div className="header-content">
 					<div className="text">
 						<span>
 							Hello, I'm{" "}
@@ -71,7 +82,7 @@ export default class Header extends React.Component {
 						Learn More
 						<FontAwesomeIcon className="right-arrow" icon={faArrowRight} size="xs" />
 					</div>
-				</canvas>
+				</div>
 			</div>
 		);
 	}

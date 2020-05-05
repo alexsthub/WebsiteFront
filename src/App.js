@@ -3,7 +3,7 @@ import "./styles/App.css";
 
 import NavBar from "./components/Navbar";
 import PortalBar from "./components/PortalBar";
-import Header from "./components/Header";
+import Header from "./components/header";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import ProjectsSection from "./sections/ProjectsSection";
