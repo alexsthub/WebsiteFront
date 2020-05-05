@@ -4,6 +4,7 @@ import "../styles/NavBar.css";
 import NavOption from "./NavOption";
 import Resume from "../misc/resume.pdf";
 
+let active = true;
 export default class NavBar extends React.Component {
 	constructor(props) {
 		super(props);
@@ -30,6 +31,10 @@ export default class NavBar extends React.Component {
 	}
 
 	listenToScroll = () => {
+		if (!active) {
+			return;
+		}
+
 		const yPos = window.scrollY + 64;
 		let start = this.state.selectedIndex;
 		let end = this.state.selectedIndex + 1;
@@ -50,7 +55,9 @@ export default class NavBar extends React.Component {
 	handleClick = (event, index) => {
 		const section = event.currentTarget.lastChild.innerHTML;
 		const selectedRef = this.props.refList[section];
+		active = false;
 		window.scrollTo(0, selectedRef.current.offsetTop - 62);
+		setTimeout(() => (active = true), 1000);
 		this.setState({ selectedIndex: index });
 	};
 

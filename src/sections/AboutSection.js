@@ -67,18 +67,20 @@ export default class AboutSection extends React.Component {
 						<Trait
 							title={"Readable"}
 							icon={faGlasses}
-							description={"Code that flows well, is easily legible, and maintainable. "}
+							description={"I write code that flows well, is easily legible, and maintainable."}
 						/>
 						<Trait
 							title={"Reliable"}
 							icon={faClock}
-							description={"Well planned projects and error handling to strengthen availability."}
+							description={
+								"I plan projects in advance and utilize robust error handling to strengthen availability."
+							}
 						/>
 						<Trait
 							title={"Scalable"}
 							icon={faMonument}
 							description={
-								"Handle lots of data and traffic with minimal downtime and loss of quality."
+								"I can handle lots of data and traffic with minimal downtime and loss of quality."
 							}
 						/>
 					</div>
