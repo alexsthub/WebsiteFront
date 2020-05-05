@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
-// TODO: Implement resizing (https://youtu.be/vxljFhP2krI?t=1485)
 // TODO: Add the static stars
 // TODO: Make the momentum logic
 const MAX_CIRCLES = 2;
@@ -18,14 +17,25 @@ export default class Header extends React.Component {
 	}
 
 	componentDidMount = () => {
+		window.addEventListener("resize", this.onResize);
+
 		this.canvas = this.canvas.current;
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
 		this.ctx = this.canvas.getContext("2d");
 
-		this.circleList = this.generateCircles(this.ctx);
-		this.circleList[0].update();
+		this.init();
 		this.animate();
+	};
+
+	componentWillUnmount = () => {
+		window.removeEventListener("resize", this.onResize);
+	};
+
+	onResize = () => {
+		this.canvas.width = window.innerWidth;
+		this.canvas.height = window.innerHeight;
+		this.init();
 	};
 
 	generateBackground = () => {
@@ -42,12 +52,12 @@ export default class Header extends React.Component {
 		]);
 
 		// Second row
-		this.generateMountain(c, width, height, "#4f5561", "#292c36", [
+		this.generateMountain(c, width, height, "#424752", "#292c36", [
 			[-0.15, 1],
 			[0.25, 0.4],
 			[0.65, 1],
 		]);
-		this.generateMountain(c, width, height, "#4f5561", "#292c36", [
+		this.generateMountain(c, width, height, "#424752", "#292c36", [
 			[1.15, 1],
 			[0.75, 0.4],
 			[0.35, 1],
@@ -90,7 +100,7 @@ export default class Header extends React.Component {
 
 	genBackgroundGradient = (c, width, height) => {
 		let gradient = c.createLinearGradient(50, 0, 0, height);
-		gradient.addColorStop(0, "rgba(20, 22, 26, 1)");
+		gradient.addColorStop(0, "#192233");
 		gradient.addColorStop(1, "rgba(69, 77, 94, 1)");
 		c.fillStyle = gradient;
 		c.fillRect(0, 0, width, height);
@@ -111,6 +121,11 @@ export default class Header extends React.Component {
 		}
 
 		return circleList;
+	};
+
+	init = () => {
+		this.circleList = this.generateCircles(this.ctx);
+		this.generateBackground();
 	};
 
 	animate = () => {
