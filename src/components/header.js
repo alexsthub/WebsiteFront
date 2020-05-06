@@ -7,12 +7,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
-// TODO: Make the momentum logic
-const MAX_CIRCLES = 1;
-const NUM_STARS = 35;
+// TODO: Reset when count hits 0
+// TODO: How to set on a timer?
+// TODO: Sparks!
+
+// TODO: Update Text.js to talk about the canvas!
+const MAX_CIRCLES = 2;
+const NUM_STARS = 40;
 const GRAVITY = 1;
-const VELOCITY_DAMPEN_MAX = 0.55;
-const VELOCITY_DAMPEN_MIN = 0.8;
+const VELOCITY_DAMPEN_MAX = 0.4;
+const VELOCITY_DAMPEN_MIN = 0.65;
 let mousePos = {
 	x: undefined,
 	y: undefined,
@@ -140,15 +144,26 @@ export default class Header extends React.Component {
 
 	generateCircles = (ctx) => {
 		let circleList = [];
-
 		for (let i = 0; i < MAX_CIRCLES; i++) {
-			const radius = 10;
+			const randomSize = Math.random();
+			const radius = randomSize >= 0.5 ? 13 : 10;
+			const count = randomSize >= 0.5 ? 2 : 1;
 			const x = Math.random() * (this.canvas.width - radius * 2) + radius;
 			const y = 60;
 			const dx = (Math.random() - 0.5) * 8;
 			const dy = 8;
 
-			const circle = new Circle(x, y, dx, dy, radius, this.canvas.width, this.canvas.height, ctx);
+			const circle = new Circle(
+				x,
+				y,
+				dx,
+				dy,
+				radius,
+				count,
+				this.canvas.width,
+				this.canvas.height,
+				ctx
+			);
 			circleList.push(circle);
 		}
 
@@ -165,7 +180,7 @@ export default class Header extends React.Component {
 		this.renderMountains();
 
 		this.circleList.forEach((c) => {
-			// c.update();
+			c.update();
 		});
 	};
 
@@ -192,6 +207,57 @@ export default class Header extends React.Component {
 				</div>
 			</div>
 		);
+	}
+}
+
+class Circle {
+	constructor(x, y, dx, dy, radius, count, width, height, ctx) {
+		this.x = x;
+		this.y = y;
+		this.dx = dx;
+		this.dy = dy;
+		this.radius = radius;
+		this.count = count;
+		this.maxWidth = width;
+		this.maxHeight = height;
+		this.ctx = ctx;
+	}
+
+	draw() {
+		this.ctx.beginPath();
+		this.ctx.strokeStyle = "black";
+		this.ctx.fillStyle = "white";
+		this.ctx.shadowColor = "white";
+		this.ctx.shadowBlur = this.radius * 0.5;
+		this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+		this.ctx.fill();
+		this.ctx.stroke();
+		this.ctx.shadowBlur = 0;
+	}
+
+	update() {
+		if (this.x + this.radius >= this.maxWidth || this.x - this.radius < 0) {
+			this.dx = -this.dx;
+		}
+		if (this.y + this.radius > this.maxHeight - 20) {
+			const velocityDampener =
+				Math.random() * (VELOCITY_DAMPEN_MIN - VELOCITY_DAMPEN_MAX) + VELOCITY_DAMPEN_MIN;
+			if (this.dy >= 0) {
+				if (this.count === 0) {
+					// TODO: Reset Somehow
+				} else {
+					this.dy = -(this.dy * velocityDampener);
+					this.count -= 1;
+					if (this.count === 1) this.radius = 10;
+					if (this.count === 0) this.radius = 6;
+				}
+			}
+		}
+		this.dy = this.dy + GRAVITY;
+		this.y += this.dy;
+		this.x += this.dx;
+
+		this.draw();
 	}
 }
 
@@ -226,51 +292,5 @@ class BackgroundStar {
 		this.ctx.fill();
 		this.ctx.stroke();
 		this.ctx.shadowBlur = 0;
-	}
-}
-
-class Circle {
-	constructor(x, y, dx, dy, radius, width, height, ctx) {
-		this.x = x;
-		this.y = y;
-		this.dx = dx;
-		this.dy = dy;
-		this.radius = radius;
-		this.maxWidth = width;
-		this.maxHeight = height;
-		this.ctx = ctx;
-	}
-
-	draw() {
-		this.ctx.beginPath();
-		this.ctx.strokeStyle = "black";
-		this.ctx.fillStyle = "white";
-		this.ctx.shadowColor = "white";
-		this.ctx.shadowBlur = this.radius * 0.5;
-		this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-		this.ctx.fill();
-		this.ctx.stroke();
-		this.ctx.shadowBlur = 0;
-	}
-
-	update() {
-		if (this.x + this.radius >= this.maxWidth || this.x - this.radius < 0) {
-			this.dx = -this.dx;
-		}
-		if (this.y + this.radius >= this.maxHeight || this.y - this.radius < 0) {
-			// TODO: When this collides it needs to go opposite and lose a random amount of momentum between 30/60?
-			// const velocityDampener =
-			// 	Math.random() * (VELOCITY_DAMPEN_MIN - VELOCITY_DAMPEN_MAX) + VELOCITY_DAMPEN_MIN;
-			// this.dy = -(this.dy * velocityDampener);
-			// console.log(this.dy);
-			console.log(this.dy);
-			console.log(this.y);
-			this.dy = -this.dy;
-		}
-		this.dy = this.dy + GRAVITY;
-		this.y += this.dy;
-		this.x += this.dx;
-
-		this.draw();
 	}
 }
