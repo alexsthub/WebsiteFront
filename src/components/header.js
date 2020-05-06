@@ -8,9 +8,15 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
 // TODO: Make the momentum logic
-const MAX_CIRCLES = 2;
+const MAX_CIRCLES = 1;
 const NUM_STARS = 35;
-const GRAVITY = 1.5;
+const GRAVITY = 1;
+const VELOCITY_DAMPEN_MAX = 0.55;
+const VELOCITY_DAMPEN_MIN = 0.8;
+let mousePos = {
+	x: undefined,
+	y: undefined,
+};
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -19,6 +25,7 @@ export default class Header extends React.Component {
 
 	componentDidMount = () => {
 		window.addEventListener("resize", this.onResize);
+		window.addEventListener("mousemove", this.handleMouseMove);
 
 		this.canvas = this.canvas.current;
 		this.canvas.width = window.innerWidth;
@@ -31,6 +38,12 @@ export default class Header extends React.Component {
 
 	componentWillUnmount = () => {
 		window.removeEventListener("resize", this.onResize);
+		window.removeEventListener("mousemove", this.handleMouseMove);
+	};
+
+	handleMouseMove = (e) => {
+		mousePos.x = e.x;
+		mousePos.y = e.y;
 	};
 
 	init = () => {
@@ -92,7 +105,7 @@ export default class Header extends React.Component {
 		for (let i = 0; i < NUM_STARS; i++) {
 			const xPos = Math.random() * width;
 			const yPos = Math.random() * height;
-			const radius = Math.floor(Math.random() * 5);
+			const radius = Math.floor(Math.random() * 5) + 2;
 
 			const star = new BackgroundStar(xPos, yPos, radius, c);
 			starList.push(star);
@@ -187,6 +200,7 @@ class BackgroundStar {
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
+		this.initialRadius = radius;
 		this.ctx = ctx;
 	}
 
@@ -195,6 +209,18 @@ class BackgroundStar {
 		this.ctx.fillStyle = "white";
 		this.ctx.shadowColor = "white";
 		this.ctx.beginPath();
+
+		if (
+			mousePos.x - this.x < 20 &&
+			mousePos.x - this.x > -20 &&
+			mousePos.y - this.y < 20 &&
+			mousePos.y - this.y > -20
+		) {
+			if (this.radius < this.initialRadius * 2) this.radius += 1;
+		} else {
+			if (this.radius > this.initialRadius) this.radius -= 1;
+		}
+
 		this.ctx.shadowBlur = this.radius * 3;
 		this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		this.ctx.fill();
@@ -219,14 +245,28 @@ class Circle {
 		this.ctx.beginPath();
 		this.ctx.strokeStyle = "black";
 		this.ctx.fillStyle = "white";
+		this.ctx.shadowColor = "white";
+		this.ctx.shadowBlur = this.radius * 0.5;
 		this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		this.ctx.fill();
 		this.ctx.stroke();
+		this.ctx.shadowBlur = 0;
 	}
 
 	update() {
-		if (this.x + this.radius > this.maxWidth || this.x - this.radius < 0) this.dx = -this.dx;
-		if (this.y + this.radius > this.maxHeight || this.y - this.radius < 0) this.dy = -this.dy;
+		if (this.x + this.radius >= this.maxWidth || this.x - this.radius < 0) {
+			this.dx = -this.dx;
+		}
+		if (this.y + this.radius >= this.maxHeight || this.y - this.radius < 0) {
+			// TODO: When this collides it needs to go opposite and lose a random amount of momentum between 30/60?
+			// const velocityDampener =
+			// 	Math.random() * (VELOCITY_DAMPEN_MIN - VELOCITY_DAMPEN_MAX) + VELOCITY_DAMPEN_MIN;
+			// this.dy = -(this.dy * velocityDampener);
+			// console.log(this.dy);
+			console.log(this.dy);
+			console.log(this.y);
+			this.dy = -this.dy;
+		}
 		this.dy = this.dy + GRAVITY;
 		this.y += this.dy;
 		this.x += this.dx;
