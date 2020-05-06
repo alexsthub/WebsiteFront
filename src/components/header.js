@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
-// TODO: How to make the stars not move at every animation?
 // TODO: Make the momentum logic
 const MAX_CIRCLES = 2;
 const NUM_STARS = 35;
@@ -27,7 +26,7 @@ export default class Header extends React.Component {
 		this.ctx = this.canvas.getContext("2d");
 
 		this.init();
-		// this.animate();
+		this.animate();
 	};
 
 	componentWillUnmount = () => {
@@ -36,7 +35,7 @@ export default class Header extends React.Component {
 
 	init = () => {
 		this.circleList = this.generateCircles(this.ctx);
-		this.generateBackground();
+		this.backgroundStarList = this.generateBackgroundStars(this.ctx);
 	};
 
 	onResize = () => {
@@ -45,13 +44,10 @@ export default class Header extends React.Component {
 		this.init();
 	};
 
-	generateBackground = () => {
+	renderMountains = () => {
 		const c = this.ctx;
 		const width = window.innerWidth;
 		const height = window.innerHeight;
-
-		this.renderBackgroundGradient(c, width, height);
-		this.renderStars(c, width, height);
 
 		this.renderMountain(c, width, height, "#646973", "#202630", [
 			[-0.2, 1],
@@ -89,23 +85,19 @@ export default class Header extends React.Component {
 		]);
 	};
 
-	renderStars = (c, width, height) => {
-		c.strokeStyle = "white";
-		c.fillStyle = "white";
-		c.shadowColor = "white";
+	generateBackgroundStars = (c) => {
+		const width = window.innerWidth;
+		const height = window.innerHeight;
+		const starList = [];
 		for (let i = 0; i < NUM_STARS; i++) {
 			const xPos = Math.random() * width;
 			const yPos = Math.random() * height;
 			const radius = Math.floor(Math.random() * 5);
 
-			c.beginPath();
-			c.shadowBlur = radius * 3;
-			c.arc(xPos, yPos, radius, 0, Math.PI * 2, false);
-			c.fill();
-			c.stroke();
+			const star = new BackgroundStar(xPos, yPos, radius, c);
+			starList.push(star);
 		}
-
-		c.shadowBlur = 0;
+		return starList;
 	};
 
 	renderMountain = (c, width, height, colorStart, colorEnd, points) => {
@@ -153,7 +145,12 @@ export default class Header extends React.Component {
 	animate = () => {
 		requestAnimationFrame(this.animate);
 		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		this.generateBackground();
+		this.renderBackgroundGradient(this.ctx, window.innerWidth, window.innerHeight);
+		this.backgroundStarList.forEach((s) => {
+			s.draw();
+		});
+		this.renderMountains();
+
 		this.circleList.forEach((c) => {
 			// c.update();
 		});
@@ -182,6 +179,27 @@ export default class Header extends React.Component {
 				</div>
 			</div>
 		);
+	}
+}
+
+class BackgroundStar {
+	constructor(x, y, radius, ctx) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+		this.ctx = ctx;
+	}
+
+	draw() {
+		this.ctx.strokeStyle = "white";
+		this.ctx.fillStyle = "white";
+		this.ctx.shadowColor = "white";
+		this.ctx.beginPath();
+		this.ctx.shadowBlur = this.radius * 3;
+		this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+		this.ctx.fill();
+		this.ctx.stroke();
+		this.ctx.shadowBlur = 0;
 	}
 }
 
