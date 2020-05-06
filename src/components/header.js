@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
-// TODO: Update Text.js to talk about the canvas!
 const NUM_STARS = 40;
 const GRAVITY = 1;
 const VELOCITY_DAMPEN_MAX = 0.4;
