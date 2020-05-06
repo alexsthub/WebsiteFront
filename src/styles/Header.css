@@ -1,5 +1,5 @@
 .App-header {
-  background-color: #282c34;
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,15 +9,24 @@
   color: white;
 }
 
+.header-content {
+  z-index: 99;
+  position: absolute;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20;
+}
+
 .text {
-  font-size: 40px;
+  font-size: 2.2em;
   line-height: .5;
   text-align: center;
 }
 
 .learn-more-button {
   outline: 2px solid white;
-  align-self: center;
   text-align: center;
   padding: 12px 25px 12px 25px;
   transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out, 0.3s outline ease-in-out;
@@ -41,4 +50,8 @@
   -moz-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+.canvas-background {
+  z-index: -10;
 }
