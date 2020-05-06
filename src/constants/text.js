@@ -173,8 +173,8 @@ const Projects = [
 		shortDescr:
 			"My personal website created with React.js and CSS. Hosted on a free EC2 instance so don't overload it!",
 		longDescr: [
-			"My personal website is written in React.js and CSS. This application is dockerized, hosted on an EC2 instance, and tied to my domain name. I spent most of my time working in React Native where the concepts are the same but the implementation is slightly different so it was interesting and fun to get used to React.js and css like grids and basic animation. ",
-			"I used bash scripts for quicker building and deploying to my server.",
+			"My personal website is written in React.js and CSS. This application is dockerized, hosted on an EC2 instance, and tied to my domain name. I spent most of my time working in React Native where the concepts are the same but the implementation is slightly different so it was interesting and fun to get used to React.js and css like grids and basic animation. I also had a lot of fun learning how to use the Canvas element for my home page. It adds some nice visuals and interactability.",
+			"I used bash scripts for quicker building and deploying to my server using docker.",
 			"Overall a fun project that I think I will go back and change as more notable achievements pop up in my life and I get better as a web developer.",
 		],
 		tools: ["React.js, Docker, Bash"],
