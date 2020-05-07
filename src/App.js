@@ -3,12 +3,14 @@ import "./styles/App.css";
 
 import NavBar from "./components/Navbar";
 import PortalBar from "./components/PortalBar";
-import Header from "./components/header";
+import Header from "./sections/Header";
 import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 
+// TODO: Media queries for mobile.
+// TODO: When skills are too big the bar to the right is disgusting.
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);

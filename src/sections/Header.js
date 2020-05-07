@@ -206,22 +206,21 @@ export default class Header extends React.Component {
 
 	render() {
 		return (
-			<div className="App-header" ref={this.props.refProp}>
+			<section className="App-header" ref={this.props.refProp}>
 				<canvas className="canvas-background" ref={this.canvas} />
 				<div className="header-content">
 					<div className="text">
-						<span>
-							Hello, I'm{" "}
-							<span style={{ color: colors.boldText, fontWeight: "bold" }}>{HeaderText.name}.</span>
-						</span>
+						<p>
+							Hello, I'm <span style={{ color: colors.boldText }}>{HeaderText.name}.</span>
+						</p>
 						<p>{HeaderText.description}</p>
 					</div>
-					<div className="learn-more-button" onClick={this.handleLearnMore}>
-						Learn More
+					<div className="learn-more-button">
+						<p>Learn More</p>
 						<FontAwesomeIcon className="right-arrow" icon={faArrowRight} size="xs" />
 					</div>
 				</div>
-			</div>
+			</section>
 		);
 	}
 }
