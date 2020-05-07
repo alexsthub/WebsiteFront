@@ -17,7 +17,7 @@ export default class ProjectsSection extends React.Component {
 	}
 
 	handleCardClick = (project) => {
-		document.body.style.overflow = "hidden";
+		document.body.style.overflowY = "hidden";
 		this.setState({ showModal: true, selectedProject: project });
 	};
 
