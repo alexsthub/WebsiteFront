@@ -227,7 +227,7 @@ export default class Header extends React.Component {
 						</p>
 						<p>{HeaderText.description}</p>
 					</div>
-					<div className="learn-more-button">
+					<div className="learn-more-button" onClick={this.handleLearnMore}>
 						<p>Learn More</p>
 						<FontAwesomeIcon className="right-arrow" icon={faArrowRight} size="xs" />
 					</div>

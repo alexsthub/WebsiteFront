@@ -10,7 +10,7 @@ import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 
 // TODO: Need to do something about the navbar.
-// TODO: Fix the modal
+// TODO: Learn more button is fukin broken.
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);
