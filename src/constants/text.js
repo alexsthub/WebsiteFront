@@ -6,7 +6,7 @@ const HeaderText = {
 const MiscText = {
 	logo: "Created my free logo at LogoMakr.com",
 	contact:
-		"I am currently looking for full time opportunities in Seattle, WA! Whether you would like to get in contact, have any questions, or just have some advice, please contact me via email or LinkedIn. I would love to hear from you. I will do my best to get back to you within a day.",
+		"I am currently looking for full time opportunities in Seattle, WA. Whether you would like to get in contact, have any questions, or just have some advice, please contact me via email or LinkedIn. I would love to hear from you! I will do my best to get back to you within a day.",
 };
 
 const Links = {

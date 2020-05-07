@@ -57,7 +57,10 @@ export default class NavBar extends React.Component {
 		const selectedRef = this.props.refList[section];
 		active = false;
 		window.scrollTo(0, selectedRef.current.offsetTop - 62);
-		setTimeout(() => (active = true), 1000);
+		let timeout;
+		if (window.innerWidth < 600) timeout = 2000;
+		else timeout = 1000;
+		setTimeout(() => (active = true), timeout);
 		this.setState({ selectedIndex: index });
 	};
 
