@@ -9,8 +9,8 @@ import ExperienceSection from "./sections/ExperienceSection";
 import ProjectsSection from "./sections/ProjectsSection";
 import ContactSection from "./sections/ContactSection";
 
-// TODO: Media queries for mobile.
-// TODO: When skills are too big the bar to the right is disgusting.
+// TODO: Need to do something about the navbar.
+// TODO: Fix the modal
 export default class App extends React.Component {
 	constructor(props) {
 		super(props);

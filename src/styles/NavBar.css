@@ -44,7 +44,7 @@
   color: #04c2c9;
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 500px) {
   .logo-container {
     display: none;
   }
@@ -58,6 +58,6 @@
   }
 
   .navbar {
-    justify-content: center;
+    justify-content: space-between;
   }
 }

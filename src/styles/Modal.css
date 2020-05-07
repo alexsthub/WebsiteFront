@@ -66,6 +66,7 @@ h3 {
 .close {
   font-size: 24px;
   transition: 0.3s color ease-in-out;
+  margin-left: 5px;
 }
 
 .close-container:hover>.close {
@@ -74,4 +75,10 @@ h3 {
 
 .large-icon {
   font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .modal {
+    width: 80%;
+  }
 }

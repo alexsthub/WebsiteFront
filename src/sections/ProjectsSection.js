@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
+// TODO: Body style overflow is not working;
 export default class ProjectsSection extends React.Component {
 	constructor(props) {
 		super(props);

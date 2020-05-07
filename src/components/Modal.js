@@ -59,7 +59,7 @@ export default class Modal extends React.Component {
 
 		const descriptions = this.props.descriptions ? (
 			this.props.descriptions.map((d) => {
-				return <p>{d}</p>;
+				return <p key={d}>{d}</p>;
 			})
 		) : (
 			<p>{this.props.shortDescription}</p>
