@@ -9,7 +9,7 @@
   border-bottom: 3px solid #04c2c9;
   color: white;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   z-index: 99;
 }
 
