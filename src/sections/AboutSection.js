@@ -119,7 +119,7 @@ class Skill extends React.Component {
 		const widthStyle = { width: percentage };
 		const fraction = rating + "/10";
 		return (
-			<div className="column-container skill-container">
+			<div className="skill-container">
 				<div className="columns">
 					<p>{this.props.skill}</p>
 				</div>

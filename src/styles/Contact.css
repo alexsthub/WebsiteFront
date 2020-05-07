@@ -1,0 +1,13 @@
+.contact-width {
+  width: 30%;
+}
+
+.column {
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 460px) {
+  .contact-width {
+    width: 70%;
+  }
+}

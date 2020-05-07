@@ -43,3 +43,21 @@
 .nav-option:hover>p {
   color: #04c2c9;
 }
+
+@media only screen and (max-width: 460px) {
+  .logo-container {
+    display: none;
+  }
+
+  .options-container {
+    margin-right: 5px;
+  }
+
+  .nav-option {
+    padding: 5px 8px 5px 8px;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+}

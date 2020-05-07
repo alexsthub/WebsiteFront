@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { HeaderText } from "../constants/text";
 
-const NUM_STARS = 40;
+let NUM_STARS = 40;
 const GRAVITY = 1;
 const VELOCITY_DAMPEN_MAX = 0.4;
 const VELOCITY_DAMPEN_MIN = 0.65;
@@ -33,6 +33,12 @@ export default class Header extends React.Component {
 		this.canvas.height = window.innerHeight;
 		this.ctx = this.canvas.getContext("2d");
 
+		if (this.canvas.width < 460) {
+			NUM_STARS = 20;
+		} else {
+			NUM_STARS = 40;
+		}
+
 		this.init();
 		this.animate();
 	};
@@ -56,6 +62,11 @@ export default class Header extends React.Component {
 	onResize = () => {
 		this.canvas.width = window.innerWidth;
 		this.canvas.height = window.innerHeight;
+		if (this.canvas.width < 460) {
+			NUM_STARS = 20;
+		} else {
+			NUM_STARS = 40;
+		}
 		this.init();
 	};
 
@@ -196,7 +207,8 @@ export default class Header extends React.Component {
 		if (this.timer % this.spawnRate === 0) {
 			const newCircle = this.generateCircle(this.ctx);
 			this.circleList.push(newCircle);
-			this.spawnRate = Math.floor(Math.random() * (300 - 200) + 200);
+			this.spawnRate = Math.floor(Math.random() * (250 - 80) + 80);
+			this.timer = 0;
 		}
 	};
 
