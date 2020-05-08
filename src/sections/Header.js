@@ -157,7 +157,7 @@ export default class Header extends React.Component {
 		const count = randomSize >= 0.5 ? 2 : 1;
 		const x = Math.random() * (this.canvas.width - radius * 2) + radius;
 		const y = 60;
-		const dx = (Math.random() - 0.5) * 8;
+		const dx = (Math.random() - 0.5) * 15;
 		const dy = 8;
 
 		const circle = new Circle(

@@ -26,18 +26,13 @@ const Skills = {
 			rating: 10,
 		},
 		{
-			name: "JavaScript",
+			name: "Typescript",
 			rating: 9,
 		},
 		{
-			name: "TypeScript",
+			name: "Node.js",
 			rating: 8,
 		},
-		{
-			name: "Node.js",
-			rating: 7,
-		},
-
 		{
 			name: "Golang",
 			rating: 7,
@@ -95,16 +90,16 @@ const Skills = {
 	],
 	concepts: [
 		{
-			name: "Webscraping",
+			name: "Client Side Dev",
 			rating: 9,
 		},
 		{
 			name: "Server Side Dev",
-			rating: 8,
+			rating: 9,
 		},
 		{
-			name: "Client Side Dev",
-			rating: 8,
+			name: "Webscraping",
+			rating: 9,
 		},
 		{
 			name: "Architecture",

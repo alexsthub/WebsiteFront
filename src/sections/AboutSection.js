@@ -13,7 +13,7 @@ export default class AboutSection extends React.Component {
 					<h3>ABOUT ME</h3>
 					<div className="border" />
 
-					<div className="column-container">
+					<div className="column-container bottom-margin">
 						<div className="center-vertical columns">
 							<p id="about-description">
 								I'm Alex, a software engineer based in Seattle, WA! I am a recent graduate from the
@@ -54,7 +54,7 @@ export default class AboutSection extends React.Component {
 							</p>
 						</div>
 						<div className="center-vertical columns">
-							<img className="image" src={"/profilepicture.jpg"} alt={"Profile"} />
+							<img className="image" src={"/profile.jpg"} alt={"Profile"} />
 						</div>
 					</div>
 
@@ -140,7 +140,7 @@ class SkillColumn extends React.Component {
 
 		return (
 			<div className="skills-column">
-				<p className="title">{this.props.title}</p>
+				<p style={{ fontSize: 24 }}>{this.props.title}</p>
 				{skills}
 			</div>
 		);

@@ -3,9 +3,9 @@
   min-height: 50vh;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-top: 80px;
   font-size: 18px;
-  padding-bottom: 80px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 
 .contact-container {
@@ -33,6 +33,7 @@ h3 {
   background-color: white;
   width: 50%;
   margin: 10px 0px 10px 0px;
+  border-radius: 5px;
 }
 
 .column-container {
@@ -64,12 +65,13 @@ h3 {
 }
 
 .image {
-  width: 262.5px;
+  width: 350px;
   height: 350px;
+  border-radius: 50%;
 }
 
 .equal-children {
-  margin-top: 40px;
+  margin-top: 80px;
   flex: 1;
 }
 
@@ -93,7 +95,7 @@ h3 {
 
 .title {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .description {
@@ -140,7 +142,16 @@ h3 {
   color: white;
 }
 
+.bottom-margin {
+  margin-bottom: 40px;
+}
+
 @media only screen and (max-width: 500px) {
+  .section-container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
   .column-container {
     display: flex;
     flex-direction: column;
