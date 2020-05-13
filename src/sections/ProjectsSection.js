@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
+import { Tooltip } from "react-tippy";
+
 export default class ProjectsSection extends React.Component {
 	constructor(props) {
 		super(props);
@@ -74,13 +76,31 @@ class Project extends React.Component {
 	render() {
 		const tools = this.props.tools.join(", ");
 		const externalIcon = this.props.external ? (
-			<div onClick={(e) => this.handleIconClick(e, this.props.external)}>
-				<FontAwesomeIcon className="card-icon space" icon={faExternalLinkAlt} />
+			<div className="space" onClick={(e) => this.handleIconClick(e, this.props.external)}>
+				<Tooltip
+					arrow={true}
+					distance={10}
+					title={"External"}
+					position="top"
+					trigger="mouseenter"
+					theme={"light"}
+				>
+					<FontAwesomeIcon className="card-icon" icon={faExternalLinkAlt} />
+				</Tooltip>
 			</div>
 		) : null;
 		const githubIcon = this.props.github ? (
-			<div onClick={(e) => this.handleIconClick(e, this.props.github)}>
-				<FontAwesomeIcon className="card-icon space" icon={faGithub} />
+			<div className="space" onClick={(e) => this.handleIconClick(e, this.props.github)}>
+				<Tooltip
+					arrow={true}
+					distance={10}
+					title={"Github"}
+					position="top"
+					trigger="mouseenter"
+					theme={"light"}
+				>
+					<FontAwesomeIcon className="card-icon" icon={faGithub} />
+				</Tooltip>
 			</div>
 		) : null;
 		return (

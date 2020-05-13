@@ -140,7 +140,7 @@ class SkillColumn extends React.Component {
 
 		return (
 			<div className="skills-column">
-				<p style={{ fontSize: 24 }}>{this.props.title}</p>
+				<p style={{ fontSize: "1.5rem", fontWeight: "bold" }}>{this.props.title}</p>
 				{skills}
 			</div>
 		);

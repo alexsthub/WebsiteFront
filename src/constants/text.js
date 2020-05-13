@@ -39,15 +39,11 @@ const Skills = {
 		},
 		{
 			name: "Java",
-			rating: 6,
+			rating: 7,
 		},
 		{
-			name: "React Native",
+			name: "React (Native)",
 			rating: 9,
-		},
-		{
-			name: "React.js",
-			rating: 8,
 		},
 		{
 			name: "Express",
@@ -61,10 +57,14 @@ const Skills = {
 		},
 		{
 			name: "Data Warehousing",
-			rating: 8,
+			rating: 9,
 		},
 		{
 			name: "MongoDB",
+			rating: 9,
+		},
+		{
+			name: "AWS",
 			rating: 8,
 		},
 		{
@@ -73,11 +73,7 @@ const Skills = {
 		},
 		{
 			name: "SQL Server",
-			rating: 7,
-		},
-		{
-			name: "AWS",
-			rating: 7,
+			rating: 8,
 		},
 		{
 			name: "Docker",
@@ -103,7 +99,7 @@ const Skills = {
 		},
 		{
 			name: "Architecture",
-			rating: 7,
+			rating: 8,
 		},
 		{
 			name: "Distributed Systems",

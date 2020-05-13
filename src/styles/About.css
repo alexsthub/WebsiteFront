@@ -159,6 +159,8 @@ h3 {
 
   .image {
     margin-top: 40px;
+    width: 80%;
+    height: 80%;
   }
 
   .trait {
