@@ -52,12 +52,14 @@ export default class ProjectsSection extends React.Component {
 						github={this.state.selectedProject.github}
 						external={this.state.selectedProject.external}
 						shortDescription={this.state.selectedProject.shortDescr}
-						descriptions={this.state.selectedProject.longDescr}
+						projectDescription={this.state.selectedProject.project}
+						problemDescription={this.state.selectedProject.problems}
+						solutionDescription={this.state.selectedProject.solutions}
 						tools={this.state.selectedProject.tools}
 					/>
 				) : null}
 				<div className="limit-width">
-					<h3>MY PROJECTS</h3>
+					<h1 className="no-margin">MY PROJECTS</h1>
 					<div className="border" />
 
 					<div className="basic-grid">{projectList}</div>

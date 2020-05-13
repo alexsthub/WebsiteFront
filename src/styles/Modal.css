@@ -1,5 +1,10 @@
-h3 {
+h1 {
   font-size: 34px;
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
 }
 
 .modal {
@@ -9,14 +14,27 @@ h3 {
   transform: translate(-50%, -45%);
   height: auto;
   max-height: 80%;
-  width: 40%;
+  width: 50%;
   z-index: 100;
   background-color: #282c34;
-  box-shadow: 5px 5px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
   overflow-x: hidden;
   overflow-y: auto;
   opacity: 0;
   transition: 0.2s opacity ease-in-out;
+}
+
+.modal-content {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.modal-content p {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .modal-background {
@@ -34,6 +52,11 @@ h3 {
   flex-direction: column;
 }
 
+.text-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .fade-in {
   opacity: 1;
 }
@@ -42,9 +65,6 @@ h3 {
   opacity: 0;
 }
 
-.modal-content {
-  margin: 30px;
-}
 
 .flex-row {
   display: flex;

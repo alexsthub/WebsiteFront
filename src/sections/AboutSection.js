@@ -10,7 +10,7 @@ export default class AboutSection extends React.Component {
 		return (
 			<section id="about" className="section-container center-vertical" ref={this.props.refProp}>
 				<div className="about-content">
-					<h3>ABOUT ME</h3>
+					<h1 className="no-margin">ABOUT ME</h1>
 					<div className="border" />
 
 					<div className="column-container bottom-margin">

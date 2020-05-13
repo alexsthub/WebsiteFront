@@ -18,7 +18,7 @@ export default class ContactSection extends React.Component {
 				style={{ position: "relative" }}
 			>
 				<div className="center-vertical contact-width">
-					<h3>CONTACT ME</h3>
+					<h1 className="no-margin">CONTACT ME</h1>
 					<div className="border" />
 					<p style={{ textAlign: "center" }}>{MiscText.contact}</p>
 

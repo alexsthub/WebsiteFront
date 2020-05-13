@@ -26,7 +26,7 @@ export default class ExperienceSection extends React.Component {
 				ref={this.props.refProp}
 			>
 				<div className="limit-width">
-					<h3>MY EXPERIENCE</h3>
+					<h1 className="no-margin">MY EXPERIENCE</h1>
 					<div className="border" />
 
 					{experiencePoints}

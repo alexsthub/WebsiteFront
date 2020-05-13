@@ -49,7 +49,7 @@ export default class Modal extends React.Component {
 		const header = (
 			<div className="flex-row flex">
 				<div className="flex">
-					<h3>{this.props.title}</h3>
+					<h1>{this.props.title}</h1>
 				</div>
 				<div className="close-container" onClick={this.handleClose}>
 					<FontAwesomeIcon className="close" icon={faWindowClose} />
@@ -57,13 +57,23 @@ export default class Modal extends React.Component {
 			</div>
 		);
 
-		const descriptions = this.props.descriptions ? (
-			this.props.descriptions.map((d) => {
-				return <p key={d}>{d}</p>;
-			})
-		) : (
-			<p>{this.props.shortDescription}</p>
-		);
+		const projectDescription = this.props.projectDescription
+			? this.props.projectDescription.map((d) => {
+					return <p key={d}>{d}</p>;
+			  })
+			: null;
+
+		const problemDescription = this.props.problemDescription
+			? this.props.problemDescription.map((d) => {
+					return <p key={d}>{d}</p>;
+			  })
+			: null;
+
+		const solutionDescription = this.props.solutionDescription
+			? this.props.solutionDescription.map((d) => {
+					return <p key={d}>{d}</p>;
+			  })
+			: null;
 
 		const tools = this.props.tools.join(", ");
 
@@ -83,9 +93,23 @@ export default class Modal extends React.Component {
 				<div className={`modal fade-${this.state.fadeType}`} onTransitionEnd={this.transitionEnd}>
 					<div className="modal-content">
 						{header}
-						<div className="modal-description flex">
-							<div className="flex">{descriptions}</div>
 
+						<div className="modal-description">
+							<h3>Project</h3>
+							<div className="text-container">{projectDescription}</div>
+						</div>
+
+						<div className="modal-description">
+							<h3>Project Challenges</h3>
+							<div className="text-container">{problemDescription}</div>
+						</div>
+
+						<div className="modal-description">
+							<h3>My Solutions</h3>
+							<div className="text-container">{solutionDescription}</div>
+						</div>
+
+						<div className="modal-description flex">
 							<div className="modal-footer">
 								<p style={{ color: "lightgray" }}>Tools: {tools}</p>
 								<div className="flex-row card-icons justify-start large-icon">
