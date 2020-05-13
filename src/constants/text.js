@@ -150,10 +150,16 @@ const Projects = [
 		title: "Varmada",
 		shortDescr:
 			"Creating a service that acts like the middleman between your home and a shipping carrier for the package return process.",
-		longDescr: [
-			"This project was inspired by the boom in ecommerce primarily inspired by Amazon. At times when I had to return packages, I was so lazy, sometimes waiting weeks or never returning it at all. But what if there was a service to take care of that for you? Research has shown that 30% of items purchased online are returned and that there is a big opportunity space for 'the first mile' in returns.",
-			"I began drawing up designs in Figma and planning my approach. I ended up using React Native to target mobile users (ios and android) and AWS Amplify to do the heavy lifting in the backend such as Authentication, Storage, and Databases. Users will be able to request packaging (boxes, mailers) if they don't have them and request label printing if they cannot. After submitting a location, date, and time, users can track the status of their return and be notified of any major changes. Everything will be in-app for a great user experience.",
-			"What started off as a personal project turned into my Capstone project, which includes 3 other team members. The project is still a work in progress but has been a really good experience for me because not only have I been able to strengthen my technical skills but my leadership skills as well. I learned to plan well and what it's like to lead a team, to delegate work, to give feedback, and to communicate properly, especially during the Covid-19 pandemic.",
+		project: [
+			"This project was inspired by the boom in ecommerce primarily inspired by Amazon. At times when I had to return packages, I was so lazy, sometimes waiting weeks or never returning it at all. But what if there was a service to take care of that for you? Research has shown that 30% of items purchased online are returned and that there is a big opportunity space for 'the first mile' in returns. It was a good opportunity to try and build something from the ground up.",
+			"Users will be able to request packaging (boxes, mailers) if they don't have them and request label printing if they cannot. After submitting a location, date, and time, users can track the status of their return and be notified of any major changes. Everything will be in-app for a great user experience.",
+			"What started off as a personal project turned into my Capstone project, which includes 3 other team memebers. The project is still a work in progress but has been a really good experience for me because not only have I been able to strengthen my technical skills but my leadership skills as well. I learned to plan well and what it's like to lead a team, to delegate work, to give feedback, and to communicate properly, especially during the Covid-19 pandemic.",
+		],
+		problems: [
+			"The biggest challenge was trying to start from nothing. How would the application look, what services are offered, who are my customers, and what systems will I need? Other problems included trying to understand how to utilize AWS Amplify and get certain UI components working.",
+		],
+		solutions: [
+			"I made sure not to rush into programming and to spend an ample amount of time thinking about the problem and the potential solutions. I drew design mockups in Figma to get a sense of the application flow. I had to learn to use amplify by reading their extensive documentation but was a bit confusing and time consuming. For UI components, I tried to make most of my components myself to give myself a good understanding on React lifecycles.",
 		],
 		tools: ["React Native", "AWS Amplify"],
 		github: "https://github.com/alexsthub/Varmada",
@@ -163,10 +169,15 @@ const Projects = [
 		title: "Personal Website",
 		shortDescr:
 			"My personal website created with React.js and CSS. Hosted on a free EC2 instance so don't overload it!",
-		longDescr: [
-			"My personal website is written in React.js and CSS. This application is dockerized, hosted on an EC2 instance, and tied to my domain name. I spent most of my time working in React Native where the concepts are the same but the implementation is slightly different so it was interesting and fun to get used to React.js and css like grids and basic animation. I also had a lot of fun learning how to use the Canvas element for my home page. It adds some nice visuals and interactability.",
-			"I used bash scripts for quicker building and deploying to my server using docker.",
+		project: [
+			"My personal website is written in React.js and CSS. This application is dockerized, hosted on an EC2 instance, and tied to my domain name. I used LetsEncrypt for a SSL certificate and bash scripts for quicker building and deploying to my server using docker.",
 			"Overall a fun project that I think I will go back and change as more notable achievements pop up in my life and I get better as a web developer.",
+		],
+		problems: [
+			"I spent a lot of time using React Native. The concepts are the same but the implementation is slightly different.",
+		],
+		solutions: [
+			"I spent some extra time to relearn the distinctions between the two frameworks and new things such as the CSS grid layout and the canvas element for extra visuals and interactibility.",
 		],
 		tools: ["React.js, Docker, Bash"],
 		github: "https://github.com/alexsthub/WebsiteFront",
@@ -175,10 +186,16 @@ const Projects = [
 		title: "Chat Application",
 		shortDescr:
 			"A simple chat application reminiscent of Slack. Supports multiple and private channels.",
-		longDescr: [
-			"I created a simple chat application that supports multiple and private channels and users. Users are able to edit and delete messages/channels that they created and likewise add and remove users from channels. This project was structured with a microservice architecture. I used Golang to build the gateway and authentication service using Redis and MySQL from user tokens and user information, respectively. I also used Node.js with express to build the messaging system with the help of MongoDB and RabbitMQ. I also built a hasty front-end interface with React.js and CSS.",
-			"This project was really fun because I was introduced to new things such as microservices and understanding the details of user authentication. This was a solo project for my Server Side Development class but I did get the help of the TA's occasionally. There were a lot of new concepts introduced.",
-			"The front-end and back-end services were both dockerized and deployed on EC2 instances. Unfortunately those instances are no longer running. ",
+		project: [
+			"I created a simple chat application that supports multiple and private channels and users. Users are able to edit and delete messages/channels that they created and likewise add and remove users from channels. This project was structured with a microservice architecture. I used Golang to build the gateway and secure token authentication service using Redis and MySQL from user tokens and user information, respectively. I also used Node.js with express to build the messaging system with the help of MongoDB and RabbitMQ. I also built a less robust front-end interface with React.js and CSS.",
+			"This project was really fun because I was introduced to new things such as microservices and understanding the details of user authentication. This was a solo project for my Server Side Development class.",
+			"The front-end and back-end services were both dockerized and deployed on EC2 instances. Unfortunately those instances are no longer running.",
+		],
+		problems: [
+			"There were a lot of new concepts introduced with this project such as microservices, websockets, and message queues. Understanding and implementing secure authentication and implementation of a Trie for user lookup also took a considerable amount of time.",
+		],
+		solutions: [
+			"My general approach to understanding something new is to read documentation, watch tutorials, or ask for help. I don't think there is anything wrong with asking for help as long as you've tried different options already. Writing tests and thinking of all the possible edgecases helped me write more reliable code.",
 		],
 		tools: ["Golang, React.js, Express, EC2, Docker, Websockets, RabbitMQ"],
 		github: "https://github.com/alexsthub/ChatApp",
@@ -187,9 +204,17 @@ const Projects = [
 		title: "Recipe Saver",
 		shortDescr:
 			"A web application where users can enter and save recipe information they like and view all saved recipes when they like.",
-		longDescr: [
+		project: [
 			"This application allows authenticated users to enter recipe information and an image and save it into a sorted collection to view later. Authenticated and storage was handled entirely by Firebase.",
 			"This project was for my Client Side Development class which I did with a partner. I took a leadership role and delegated work for him to do, providing support when needed. The end product was completed in React.js and CSS but initially we were told to make it using jQuery, and then converted our code to React.js to get a better sense of interacting elements.",
+		],
+		problems: [
+			"A problem was the structure of the entire project. As we were working, the code became more and more difficult to read as wwe both contributed to the repository. It was getting hard to understand the changes that the other person had made.",
+		],
+		solutions: [
+			"We tried to communicate better to understand each other's intent. However, this was a big learning experience for me towards the importance of software structure and clean code. Moving forward, I made sure to increase the priority of structure and readability in my latest projects.",
+		],
+		longDescr: [
 			"This was my first React.js project built from the ground up to completion. It was nice to use Firebase to handle the backend implementation so that I could focus on structure and interaction of components.",
 		],
 		tools: ["React.js, Firebase, jQuery"],
@@ -200,19 +225,28 @@ const Projects = [
 		title: "Steal Grabber",
 		shortDescr:
 			"A webscraper that will get product information returned from a query in craigslist.",
-		longDescr: [
+		project: [
 			"The idea was to find products on craigslist and and compare them to their retail price and if the price on Craigslist was a certain percentage of the retail price, to mark that item. The current webscraper will get all product items given a query in Craigslist using Python. However, I found that the products returned were often so far off from the intial query and the title of these products were severely inconsistent that I did not continue.",
 			"However, the scraper was interesting to make. I had a lot of fun using Async.io and Aiohttp to scrape asynchronously, reducing runtime by about 30x. I also implemented pagination in case multiple pages of items were returned, which they often were.",
 		],
+		problems: [
+			"Using the Aiohttp package to make asynchronous requests to a browser. This whole process was a lot different from simple asynchronous functions in javascript.",
+		],
+		solutions: ["Reading documentation and manually testing if functions are executing properly."],
 		tools: ["Python, Async.io, Pandas"],
 		github: "https://github.com/alexsthub/stealGrabber",
 	},
 	{
 		title: "Correlation-One Algo",
 		shortDescr: "An algorithm for a tower defense game competition hosted by Citadel.",
-		longDescr: [
+		project: [
 			"Correlation One is a programming competition hosted by Citadel in which teams create an algorithm for a tower defense game and play against 'bosses' (already created algorithms) and algorithms from other teams. I was part of a team of 3 and the whole competition lasted about 5 hours. Teams could either write an algorithm or train a machine learning model. We chose the algorithmic approach in Python.",
 			"I had a lot of fun because we first had to play the game to get a sense of what units synergized well with each other, if they were cost effective, strategies that countered other strategies, and responses. After testing our algorithm, I thought we had a good answer but upon playing other teams, we lost. This was because of an oversight where we didn't keep storing resources if attacks were not effective",
+		],
+		problems: [
+			"There was not enough time to make a more robust algorithm and think of different types of attacks and defenses.",
+		],
+		solutions: [
 			"From this experience, I learned to try and think of as many test cases as possible when implementing something and to maybe start earlier because often there are so many cases and it's difficult to think of all of them at once.",
 		],
 		tools: ["Python"],
@@ -222,10 +256,16 @@ const Projects = [
 	{
 		title: "Movie Revenue Predictor",
 		shortDescr: "Utilized shallow machine learning methods to try and predict movie revenue.",
-		longDescr: [
-			"The goals of this project was to see which features of a movie had the most impact on a movie's profit and how accurately can we predict profit. I worked on this project with three other members. To do this, we found a dataset of about 50,000 movies with extra data such as revenue, profit, director, etc. However, there was a suprising amount of missing revenue data so I scraped for that missing data on a different site with Python/request. In order to use actors and directors, which we felt was a large component in success, we quantified individual success by the number of movies they were in, award nominations, and award wins. To do this, I assisted a partner with crawling IMDB using selenium.",
+		project: [
+			"The goals of this project was to see which features of a movie had the most impact on a movie's profit and how accurately can we predict profit. I worked on this project with three other members. To do this, we found a dataset of about 50,000 movies with extra data such as revenue, profit, director, etc.",
 			"We then tried Linear, Ridge, Lasso, and Logistic regression to train our models but did not really get good results. I think this was because of a lack of preprocessing. One big thing we thought of later was that the data we got wasn't normalized. Revenue was likely given by the total, so older movies would have a much higher revenue than relatively newer ones.",
-			"From this project, I learned to work well with a team and complete a 'real world' project from the ground up. We had to collect our data and clean it, which was a long process. From our mistakes, I learned to spend more time thinking about the data before acting on it. Is there anything wrong with it? Our repository was also very unorganized so I started thinking about structure and readability a little more.",
+			"From this project, I learned to work well with a team and complete a 'real world' project from the ground up. We had to collect our data and clean it, which was a long process. ",
+		],
+		problems: [
+			"There was a suprising amount of missing revenue data in the dataset we used from kaggle and not enough features to analyze.",
+		],
+		solutions: [
+			"I scraped for that missing data on a different site with Python/request. In order to use actors and directors, which we felt was a large component in success, we quantified individual success by the number of movies they were in, award nominations, and award wins. To do this, I assisted a partner with crawling IMDB using selenium. From our mistakes, I learned to spend more time thinking about the data before acting on it. Is there anything wrong with it? Our repository was also very unorganized so I started thinking about structure and readability a little more.",
 		],
 		tools: ["Python", "Selenium"],
 		github: "https://github.com/alexsthub/MoviePredictor",
@@ -233,10 +273,12 @@ const Projects = [
 	{
 		title: "Traffic Visualizer",
 		shortDescr: "An analysis of Seattle traffic collision grouped by neighborhoods.",
-		longDescr: [
+		project: [
 			"This project used traffic accident data provided by the WSDOT to map out collisions in different seattle neighborhoods based on different filters such as road conditions, weather, time, attention. This was my first data analysis project with a team of 3. We used R to manipulate the data and Shiny to create a simple UI.",
 			"This was my introduction to programming and utilizing data and it really got me hooked to the profession.",
 		],
+		problems: ["As a first time git user, I had trouble with merge conflicts."],
+		solutions: ["I asked my team members for assistance and worked out problems together."],
 		tools: ["R", "Shiny"],
 		github: "https://github.com/alexsthub/SeattleTrafficAnalysis",
 		external: "https://bzb4565.shinyapps.io/final_project/",
