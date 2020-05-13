@@ -187,7 +187,7 @@ const Projects = [
 		shortDescr:
 			"A simple chat application reminiscent of Slack. Supports multiple and private channels.",
 		project: [
-			"I created a simple chat application that supports multiple and private channels and users. Users are able to edit and delete messages/channels that they created and likewise add and remove users from channels. This project was structured with a microservice architecture. I used Golang to build the gateway and authentication service using Redis and MySQL from user tokens and user information, respectively. I also used Node.js with express to build the messaging system with the help of MongoDB and RabbitMQ. I also built a less robust front-end interface with React.js and CSS.",
+			"I created a simple chat application that supports multiple and private channels and users. Users are able to edit and delete messages/channels that they created and likewise add and remove users from channels. This project was structured with a microservice architecture. I used Golang to build the gateway and secure token authentication service using Redis and MySQL from user tokens and user information, respectively. I also used Node.js with express to build the messaging system with the help of MongoDB and RabbitMQ. I also built a less robust front-end interface with React.js and CSS.",
 			"This project was really fun because I was introduced to new things such as microservices and understanding the details of user authentication. This was a solo project for my Server Side Development class.",
 			"The front-end and back-end services were both dockerized and deployed on EC2 instances. Unfortunately those instances are no longer running.",
 		],
@@ -204,12 +204,17 @@ const Projects = [
 		title: "Recipe Saver",
 		shortDescr:
 			"A web application where users can enter and save recipe information they like and view all saved recipes when they like.",
-		project: [],
-		problems: [],
-		solutions: [],
-		longDescr: [
+		project: [
 			"This application allows authenticated users to enter recipe information and an image and save it into a sorted collection to view later. Authenticated and storage was handled entirely by Firebase.",
 			"This project was for my Client Side Development class which I did with a partner. I took a leadership role and delegated work for him to do, providing support when needed. The end product was completed in React.js and CSS but initially we were told to make it using jQuery, and then converted our code to React.js to get a better sense of interacting elements.",
+		],
+		problems: [
+			"A problem was the structure of the entire project. As we were working, the code became more and more difficult to read as wwe both contributed to the repository. It was getting hard to understand the changes that the other person had made.",
+		],
+		solutions: [
+			"We tried to communicate better to understand each other's intent. However, this was a big learning experience for me towards the importance of software structure and clean code. Moving forward, I made sure to increase the priority of structure and readability in my latest projects.",
+		],
+		longDescr: [
 			"This was my first React.js project built from the ground up to completion. It was nice to use Firebase to handle the backend implementation so that I could focus on structure and interaction of components.",
 		],
 		tools: ["React.js, Firebase, jQuery"],
@@ -220,25 +225,28 @@ const Projects = [
 		title: "Steal Grabber",
 		shortDescr:
 			"A webscraper that will get product information returned from a query in craigslist.",
-		project: [],
-		problems: [],
-		solutions: [],
-		longDescr: [
+		project: [
 			"The idea was to find products on craigslist and and compare them to their retail price and if the price on Craigslist was a certain percentage of the retail price, to mark that item. The current webscraper will get all product items given a query in Craigslist using Python. However, I found that the products returned were often so far off from the intial query and the title of these products were severely inconsistent that I did not continue.",
 			"However, the scraper was interesting to make. I had a lot of fun using Async.io and Aiohttp to scrape asynchronously, reducing runtime by about 30x. I also implemented pagination in case multiple pages of items were returned, which they often were.",
 		],
+		problems: [
+			"Using the Aiohttp package to make asynchronous requests to a browser. This whole process was a lot different from simple asynchronous functions in javascript.",
+		],
+		solutions: ["Reading documentation and manually testing if functions are executing properly."],
 		tools: ["Python, Async.io, Pandas"],
 		github: "https://github.com/alexsthub/stealGrabber",
 	},
 	{
 		title: "Correlation-One Algo",
 		shortDescr: "An algorithm for a tower defense game competition hosted by Citadel.",
-		project: [],
-		problems: [],
-		solutions: [],
-		longDescr: [
+		project: [
 			"Correlation One is a programming competition hosted by Citadel in which teams create an algorithm for a tower defense game and play against 'bosses' (already created algorithms) and algorithms from other teams. I was part of a team of 3 and the whole competition lasted about 5 hours. Teams could either write an algorithm or train a machine learning model. We chose the algorithmic approach in Python.",
 			"I had a lot of fun because we first had to play the game to get a sense of what units synergized well with each other, if they were cost effective, strategies that countered other strategies, and responses. After testing our algorithm, I thought we had a good answer but upon playing other teams, we lost. This was because of an oversight where we didn't keep storing resources if attacks were not effective",
+		],
+		problems: [
+			"There was not enough time to make a more robust algorithm and think of different types of attacks and defenses.",
+		],
+		solutions: [
 			"From this experience, I learned to try and think of as many test cases as possible when implementing something and to maybe start earlier because often there are so many cases and it's difficult to think of all of them at once.",
 		],
 		tools: ["Python"],
@@ -248,13 +256,16 @@ const Projects = [
 	{
 		title: "Movie Revenue Predictor",
 		shortDescr: "Utilized shallow machine learning methods to try and predict movie revenue.",
-		project: [],
-		problems: [],
-		solutions: [],
-		longDescr: [
-			"The goals of this project was to see which features of a movie had the most impact on a movie's profit and how accurately can we predict profit. I worked on this project with three other members. To do this, we found a dataset of about 50,000 movies with extra data such as revenue, profit, director, etc. However, there was a suprising amount of missing revenue data so I scraped for that missing data on a different site with Python/request. In order to use actors and directors, which we felt was a large component in success, we quantified individual success by the number of movies they were in, award nominations, and award wins. To do this, I assisted a partner with crawling IMDB using selenium.",
+		project: [
+			"The goals of this project was to see which features of a movie had the most impact on a movie's profit and how accurately can we predict profit. I worked on this project with three other members. To do this, we found a dataset of about 50,000 movies with extra data such as revenue, profit, director, etc.",
 			"We then tried Linear, Ridge, Lasso, and Logistic regression to train our models but did not really get good results. I think this was because of a lack of preprocessing. One big thing we thought of later was that the data we got wasn't normalized. Revenue was likely given by the total, so older movies would have a much higher revenue than relatively newer ones.",
-			"From this project, I learned to work well with a team and complete a 'real world' project from the ground up. We had to collect our data and clean it, which was a long process. From our mistakes, I learned to spend more time thinking about the data before acting on it. Is there anything wrong with it? Our repository was also very unorganized so I started thinking about structure and readability a little more.",
+			"From this project, I learned to work well with a team and complete a 'real world' project from the ground up. We had to collect our data and clean it, which was a long process. ",
+		],
+		problems: [
+			"There was a suprising amount of missing revenue data in the dataset we used from kaggle and not enough features to analyze.",
+		],
+		solutions: [
+			"I scraped for that missing data on a different site with Python/request. In order to use actors and directors, which we felt was a large component in success, we quantified individual success by the number of movies they were in, award nominations, and award wins. To do this, I assisted a partner with crawling IMDB using selenium. From our mistakes, I learned to spend more time thinking about the data before acting on it. Is there anything wrong with it? Our repository was also very unorganized so I started thinking about structure and readability a little more.",
 		],
 		tools: ["Python", "Selenium"],
 		github: "https://github.com/alexsthub/MoviePredictor",
@@ -262,13 +273,12 @@ const Projects = [
 	{
 		title: "Traffic Visualizer",
 		shortDescr: "An analysis of Seattle traffic collision grouped by neighborhoods.",
-		project: [],
-		problems: [],
-		solutions: [],
-		longDescr: [
+		project: [
 			"This project used traffic accident data provided by the WSDOT to map out collisions in different seattle neighborhoods based on different filters such as road conditions, weather, time, attention. This was my first data analysis project with a team of 3. We used R to manipulate the data and Shiny to create a simple UI.",
 			"This was my introduction to programming and utilizing data and it really got me hooked to the profession.",
 		],
+		problems: ["As a first time git user, I had trouble with merge conflicts."],
+		solutions: ["I asked my team members for assistance and worked out problems together."],
 		tools: ["R", "Shiny"],
 		github: "https://github.com/alexsthub/SeattleTrafficAnalysis",
 		external: "https://bzb4565.shinyapps.io/final_project/",
