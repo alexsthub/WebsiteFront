@@ -166,6 +166,21 @@ const Projects = [
 		external: "https://wjbarng.wixsite.com/varmada",
 	},
 	{
+		title: "Review System",
+		shortDescr: "A simple CRUD server that supports companies, products, and reviews.",
+		project: [
+			"I wanted to get more experience working with Typescript and building REST Api's so I thought I would implement a review system with persistent storage. Two main things that I wanted to work on were writing unit tests with Chai and Mocha and writing clean code. I wanted to prioritize good naming and structure and writing helper methods to make confusing sections a little more clear, especially in places where there are lots of callbacks.",
+		],
+		problems: [
+			"I had trouble writing unit tests that would work without resetting the data in my database docker container. For instance, I would test editting a review by reviewID, but the reviewID might not exist anymore because I was reading from the same production database.",
+		],
+		solutions: [
+			"I created a bash script that would spin up a new database instance specifically for testing, run the tests, and then delete the instance. This made the row ID's consistent even if I ran the tests multiple times. The only downside is that the new instance takes about 15 seconds to load before tests can be run.",
+		],
+		tools: ["Typescript", "Express", "Docker", "Bash"],
+		github: "https://github.com/alexsthub/ReviewSystem",
+	},
+	{
 		title: "Personal Website",
 		shortDescr:
 			"My personal website created with React.js and CSS. Hosted on a free EC2 instance so don't overload it!",
