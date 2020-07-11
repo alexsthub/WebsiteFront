@@ -54,7 +54,11 @@ export default class AboutSection extends React.Component {
 							</p>
 						</div>
 						<div className="center-vertical columns">
-							<img className="image" src={"/profile.jpg"} alt={"Profile"} />
+							<img
+								className="image"
+								src={process.env.PUBLIC_URL + "/profile.jpg"}
+								alt={"Profile"}
+							/>
 						</div>
 					</div>
 
