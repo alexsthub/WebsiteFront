@@ -56,16 +56,16 @@ const Skills = {
 			rating: 10,
 		},
 		{
+			name: "AWS",
+			rating: 9,
+		},
+		{
 			name: "Data Warehousing",
 			rating: 9,
 		},
 		{
 			name: "MongoDB",
 			rating: 9,
-		},
-		{
-			name: "AWS",
-			rating: 8,
 		},
 		{
 			name: "Redis",
@@ -119,7 +119,7 @@ const Skills = {
 const Experiences = [
 	{
 		title: "Stackline",
-		jobTitle: "Full Stack Developer Intern",
+		jobTitle: "Software Engineer Intern",
 		link: "https://www.stackline.com/",
 		start: "June 2018",
 		end: "April 2019",
@@ -147,9 +147,39 @@ const Experiences = [
 
 const Projects = [
 	{
+		title: "Official Game News",
+		shortDescr:
+			"A chrome extension where users select from a list of video games and get notifications of recent news or patch notes from their respective official sites.",
+		project: [
+			"I created this project because I like playing video games. I like to stay up to date on any updates a game may have, whether it is a game update/patch or any general news. There are options for notifications via email but I felt like that solution was not simple enough. A small icon at the top of the screen would suffice.",
+			"To do this, I needed to figure out when a new article is published. I wrote a scalable web scraper to check these sites every 2 hours using AWS Lambda, SQS, RDS, and Cloudwatch. If a new article is found, it is sent to a websocket server via SQS and broadcasted to users.",
+			"Users will be notified in the extension and will be given the title, link, date, image, and category(general or update).",
+		],
+		problems: [
+			"I had trouble getting all of the scrapers to function properly. For one of the games, there were shadow roots in the HTML that couldn't be parsed through normally. Also, some games needed to entire the article url to gain the necessary information instead of scraping just the home site.",
+			"I also had trouble dockerizing the websocket server without the container being too heavy. It was also different to deal with typescript instead of plain javascript.",
+		],
+		solutions: [
+			"To deal with the shadow root, I found that scraping with a headful browser resolved my issue. Also, I had the lambda reading from an SQS queue so if an article needed extra information, I could sent another message into the queue with a different Type attribute.",
+			"To dockerize my server, I used a two stage process where the first stage copies files everything over and compiles and builds the project. The second stage installs on the production modules and copies the build.",
+		],
+		tools: [
+			"Typescript",
+			"React.js",
+			"Lambda",
+			"SQS",
+			"RDS",
+			"Cloudwatch",
+			"Travis CI",
+			"Websockets",
+			"Bash Scripting",
+		],
+		github: "https://github.com/alexsthub/EsportsNews",
+	},
+	{
 		title: "Varmada",
 		shortDescr:
-			"Creating a service that acts like the middleman between your home and a shipping carrier for the package return process.",
+			"A service that acts like the middleman between your home and a shipping carrier for the package return process.",
 		project: [
 			"This project was inspired by the boom in ecommerce primarily inspired by Amazon. At times when I had to return packages, I was so lazy, sometimes waiting weeks or never returning it at all. But what if there was a service to take care of that for you? Research has shown that 30% of items purchased online are returned and that there is a big opportunity space for 'the first mile' in returns. It was a good opportunity to try and build something from the ground up.",
 			"Users will be able to request packaging (boxes, mailers) if they don't have them and request label printing if they cannot. After submitting a location, date, and time, users can track the status of their return and be notified of any major changes. Everything will be in-app for a great user experience.",
