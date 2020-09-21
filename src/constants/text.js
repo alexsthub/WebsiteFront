@@ -147,6 +147,27 @@ const Experiences = [
 
 const Projects = [
 	{
+		title: "Restaurant Website",
+		shortDescr:
+			"A complete and responsive restaurant website template made with React.js. Complete with home, menu, ordering, checkout, and confirmation.",
+		project: [
+			"I wanted to work on a multi-route website with React.js. A friend owns a restaurant that I based my website on. There are screens for home, menu, order, delivery, checkout, and confirmation.",
+			"The website is very responsive, switching between mobile and desktop designs depending on the screen size which is an advantage above to templates provided by Wix and SquareSpace, which do not offer responsive layouts.",
+			"I used very few dependencies, writing most of the JS myself to handle cart actions, checkout validation, category scrolling, and date picking. I also designed the website myself. These are all things I am very proud of.",
+		],
+		problems: [
+			"I had difficulty getting the category picker in the menu section to be responsive. I wasn't sure how to check if there was overflow for the category names on a singular line.",
+			"It was hard working with dates and times while ordering. I wanted two options, ASAP and a later time. Given a range of open hours, if the restaurant was currently open with at least 15 minutes before close, it would default to now but if not, default to most recent next available time.",
+		],
+		solutions: [
+			"I realized that if I gave the container a fixed height, hid the overflow, and checked each category element's yPosition, I could figure out a breakpoint index for categories and put the rest in a dropdown menu.",
+			"I wrote helper methods to help me deal with dates to make a dynamic system.",
+		],
+		tools: ["React.js", "CSS", "Javascript"],
+		github: "https://github.com/alexsthub/IchiRollWebsite",
+		external: "https://alexsthub.github.io/IchiRollWebsite/",
+	},
+	{
 		title: "Official Game News",
 		shortDescr:
 			"A chrome extension where users select from a list of video games and get notifications of recent news or patch notes from their respective official sites.",
